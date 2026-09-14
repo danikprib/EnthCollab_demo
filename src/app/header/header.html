@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 border-b-2 border-dashed border-red-500">
+<header class="sticky top-0 z-50 border-b-2 bg-[var(--surface)]  border-[var(--border)]">
   <div class="flex items-center justify-between gap-4 p-4">
     <nav class="flex gap-4">
       <a href="/">Home</a>
@@ -8,6 +8,14 @@
 
     <input type="search" placeholder="Search here..." class="rounded-md border" />
 
-    <a href="/login" class="border">Log In</a>
+    <button type="button" (click)="theme.toggle()">
+      @if (theme.darkMode()) {
+        <svg lucideMoon class="size-5 hover:text-[var(--text-secondary)]"></svg>
+      } @else {
+        <svg lucideSun class="size-5 hover:text-[var(--text-secondary)]"></svg>
+      }
+    </button>
+
+    <a href="/login" class="border py-1 px-5 border-[var(--border)] bg-[var(--surface)]">Log In</a>
   </div>
 </header>

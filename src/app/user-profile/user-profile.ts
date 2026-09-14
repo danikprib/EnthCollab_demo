@@ -7,6 +7,7 @@ import {
   LucideSquareX
 } from '@lucide/angular';
 import { Project, ProjectStatus } from '../models/project';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -19,7 +20,7 @@ import { Project, ProjectStatus } from '../models/project';
     LucideCircleCheckBig,
     LucideCirclePause,
     LucideSquareX,
-    
+    RouterLink
   ],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.css',

@@ -1,5 +1,5 @@
 <div class="flex gap-2 justify-center">
-  <div class="rounded shadow-lg border-1 border-green-500 flex flex-col gap-2 m-2">
+  <div class="rounded shadow-lg border-1 border-green-500 flex flex-col gap-2 m-2 bg-[var(--surface)]">
     <svg lucideUser class="size-5"></svg>
     <h2 class="font-bold">user info</h2>
     <label>User ID</label>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="flex flex-col gap-2 m-2 rounded shadow-lg border-1 border-green-500 items-center">
-    <nav class="flex">
+    <nav class="flex bg-[var(--surface)]">
       <button
         type="button"
         (click)="activeTab = 'account'"
@@ -78,23 +78,21 @@
           class="flex flex-col m-2 gap-2 p-2 border-1 border-blue-600 overflow-y-scroll h-80 w-96"
         >
           @for (project of projects; track project.id) {
-            <div
-              class="cursor-pointer rounded-lg border p-3"
-            >
+            <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
               <div class="flex flex-row justify-between">
                 <div class="flex flex-row items-center gap-2 justify-center">
                   @switch (project.status) {
                     @case (ProjectStatus.Finished) {
-                      <svg lucideCircleCheckBig class="size-3 text-[var(--green)]"></svg>
+                      <svg lucideCircleCheckBig class="size-4 text-[var(--green)]"></svg>
                     }
                     @case (ProjectStatus.Frozen) {
-                      <svg lucideCirclePause class="size-3 text-[var(--cyan)]"></svg>
+                      <svg lucideCirclePause class="size-4 text-[var(--cyan)]"></svg>
                     }
                     @case (ProjectStatus.WIP) {
-                      <svg lucideTriangle class="size-3 text-[var(--amber)]"></svg>
+                      <svg lucideTriangle class="size-4 text-[var(--amber)]"></svg>
                     }
                     @case (ProjectStatus.Cancelled) {
-                      <svg lucideSquareX class="size-3 text-[var(--red)]"></svg>
+                      <svg lucideSquareX class="size-4 text-[var(--red)]"></svg>
                     }
                   }
                   <span>
@@ -105,7 +103,9 @@
                   {{ project.visibility }}
                 </span>
               </div>
-              <h2 class="font-semibold">{{ project.name }}</h2>
+              <a [routerLink]="['/project', project.id]" class="font-semibold text-[var(--blue)]">{{
+                project.name
+              }}</a>
               <p>{{ project.description }}</p>
               <div class="flex flex-wrap gap-2 mt-2">
                 @for (tag of project.tags; track $index) {

@@ -3,6 +3,7 @@ import { UserProfile } from './user-profile/user-profile';
 import { HomePage } from './home-page/home-page';
 import { Login } from './login/login';
 import { Signup } from './signup/signup';
+import { ProjectPage } from './project-page/project-page';
 
 export const routes: Routes = [
 
@@ -26,6 +27,11 @@ export const routes: Routes = [
         component: UserProfile,
         title: 'User Profile'
     },
+    {
+        path: 'project/:projectId',
+        component: ProjectPage,
+        title: 'Project Page'
+    }
     
 
 
