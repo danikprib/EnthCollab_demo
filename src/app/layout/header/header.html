@@ -1,0 +1,125 @@
+<header class="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="flex min-h-16 items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <button
+          type="button"
+          class="flex size-10 items-center justify-center rounded-md hover:bg-[var(--background)] md:hidden"
+          (click)="toggleMobileMenu()"
+          aria-label="Toggle navigation menu"
+        >
+          @if (mobileMenuOpened()) {
+            <svg lucideX class="size-5"></svg>
+          } @else {
+            <svg lucideMenu class="size-5"></svg>
+          }
+        </button>
+
+        <a routerLink="/" class="font-bold"> EnthCollab </a>
+
+        <nav class="hidden items-center gap-4 md:flex">
+          <a routerLink="/" class="hover:text-[var(--text-secondary)]">Home</a>
+          <a routerLink="/projects" class="hover:text-[var(--text-secondary)]">Projects</a>
+          <a routerLink="/chats" class="hover:text-[var(--text-secondary)]">Chats</a>
+          <a routerLink="/user" class="hover:text-[var(--text-secondary)]">User</a>
+        </nav>
+      </div>
+
+      <div class="hidden w-80 md:block">
+        <div class="relative">
+          <svg
+            lucideSearch
+            class="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--text-secondary)]"
+          ></svg>
+
+          <input
+            type="search"
+            placeholder="Search..."
+            class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] py-2 pl-9 pr-3 outline-none focus:border-[var(--blue)]"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button
+          type="button"
+          class="flex size-10 items-center justify-center rounded-md hover:bg-[var(--background)]"
+          (click)="theme.toggle()"
+          aria-label="Toggle theme"
+        >
+          @if (theme.darkMode()) {
+            <svg lucideMoon class="size-5"></svg>
+          } @else {
+            <svg lucideSun class="size-5"></svg>
+          }
+        </button>
+
+        <a
+          routerLink="/login"
+          class="hidden rounded-md border border-[var(--border)] px-4 py-2 hover:bg-[var(--background)] sm:block"
+        >
+          Log In
+        </a>
+      </div>
+    </div>
+
+    <div class="pb-3 md:hidden">
+      <div class="relative">
+        <svg
+          lucideSearch
+          class="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[var(--text-secondary)]"
+        ></svg>
+
+        <input
+          type="search"
+          placeholder="Search..."
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] py-2 pl-9 pr-3 outline-none focus:border-[var(--blue)]"
+        />
+      </div>
+    </div>
+
+    @if (mobileMenuOpened()) {
+      <nav class="flex flex-col border-t border-[var(--border)] py-2 md:hidden">
+        <a
+          routerLink="/"
+          class="rounded-md px-3 py-3 hover:bg-[var(--background)]"
+          (click)="mobileMenuOpened.set(false)"
+        >
+          Home
+        </a>
+
+        <a
+          routerLink="/projects"
+          class="rounded-md px-3 py-3 hover:bg-[var(--background)]"
+          (click)="mobileMenuOpened.set(false)"
+        >
+          Projects
+        </a>
+
+        <a
+          routerLink="/chats"
+          class="rounded-md px-3 py-3 hover:bg-[var(--background)]"
+          (click)="mobileMenuOpened.set(false)"
+        >
+          Chats
+        </a>
+
+        <a
+          routerLink="/user"
+          class="rounded-md px-3 py-3 hover:bg-[var(--background)]"
+          (click)="mobileMenuOpened.set(false)"
+        >
+          User
+        </a>
+
+        <a
+          routerLink="/login"
+          class="rounded-md px-3 py-3 hover:bg-[var(--background)] sm:hidden"
+          (click)="mobileMenuOpened.set(false)"
+        >
+          Log In
+        </a>
+      </nav>
+    }
+  </div>
+</header>

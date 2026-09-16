@@ -1,35 +1,41 @@
 import { Component } from '@angular/core';
 import {
   LucideUser,
+  LucideCircleUserRound,
   LucideTriangle,
   LucideCircleCheckBig,
   LucideCirclePause,
-  LucideSquareX
+  LucideSquareX,
+  LucideMail,
+  LucideIdCard,
 } from '@lucide/angular';
-import { Project, ProjectStatus } from '../models/project';
+import { Project, ProjectStatus } from '../../shared/models/project';
 import { RouterLink } from '@angular/router';
 
 
 
 
 @Component({
-  selector: 'app-user-profile',
+  selector: 'app-profile',
   imports: [
     LucideUser,
+    LucideCircleUserRound,
     LucideTriangle,
     LucideCircleCheckBig,
     LucideCirclePause,
     LucideSquareX,
+    LucideMail,
+    LucideIdCard,
     RouterLink
   ],
-  templateUrl: './user-profile.html',
-  styleUrl: './user-profile.css',
+  templateUrl: './profile.html',
+  styleUrl: './profile.css',
 })
-export class UserProfile {
+export class Profile {
 
   readonly ProjectStatus = ProjectStatus;
 
-  activeTab = 'projects';
+  activeTab = 'account';
 
   readonly projects: Project[] = [
   {

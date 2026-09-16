@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { UserProfile } from './user-profile/user-profile';
-import { HomePage } from './home-page/home-page';
-import { Login } from './login/login';
-import { Signup } from './signup/signup';
-import { ProjectPage } from './project-page/project-page';
+import { Profile } from './pages/profile/profile';
+import { Home } from './pages/home/home';
+import { Login } from './pages/login/login';
+import { Signup } from './pages/signup/signup';
+import { Project } from './pages/project/project';
 
 export const routes: Routes = [
 
     {
         path: '',
-        component: HomePage,
+        component: Home,
         title: 'Home Page'
     },
     {
@@ -24,12 +24,12 @@ export const routes: Routes = [
     },
     {
         path: 'user',
-        component: UserProfile,
+        component: Profile,
         title: 'User Profile'
     },
     {
         path: 'project/:projectId',
-        component: ProjectPage,
+        component: Project,
         title: 'Project Page'
     }
     

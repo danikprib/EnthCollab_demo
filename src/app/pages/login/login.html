@@ -1,0 +1,48 @@
+<div class="flex min-h-[calc(100vh-4rem)] items-center md:justify-center px-4 py-8">
+  <div class="w-full max-w-md rounded-md border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+    <form class="flex flex-col gap-4">
+      <h2 class="text-xl font-bold">Log in to your account</h2>
+
+      <div class="flex flex-col gap-2">
+        <label for="username">Username or email</label>
+        <input
+          id="username"
+          type="text"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="john.doe@gmail.com"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="Test12!_"
+        />
+      </div>
+
+      <a
+        routerLink="/forgot-password"
+        class="text-[var(--blue)] hover:underline"
+      >
+        Forgot Password?
+      </a>
+
+      <button
+        type="submit"
+        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
+      >
+        Login
+      </button>
+
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-1 text-sm">
+        <span class="text-[var(--text-secondary)]">Don't have an account yet?</span>
+        <a routerLink="/signup" class="text-[var(--blue)] hover:underline">
+          Sign up
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

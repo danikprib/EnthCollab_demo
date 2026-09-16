@@ -1,0 +1,61 @@
+<div class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-8">
+  <div class="w-full max-w-md rounded-md border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+    <form class="flex flex-col gap-4">
+      <h2 class="text-xl font-bold">Sign up</h2>
+
+      <div class="flex flex-col gap-2">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="John Doe"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="john.doe@gmail.com"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="Test12!_"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="confirmPassword">Confirm password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+          placeholder="Test12!_"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
+      >
+        Sign Up
+      </button>
+
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-1 text-sm">
+        <span class="text-[var(--text-secondary)]">Already have an account?</span>
+        <a routerLink="/login" class="text-[var(--blue)] hover:underline">
+          Log in
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
