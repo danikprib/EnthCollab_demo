@@ -1,1 +1,35 @@
-<p>chats works!</p>
+<div class="mx-auto flex h-[calc(100vh-6rem)] max-w-6xl gap-4 p-4">
+  
+  <!-- CHAT LIST SIDEBAR -->
+  <!-- Hidden on mobile if a chat is active; always visible on desktop -->
+  <aside 
+    class="w-full shrink-0 overflow-y-auto rounded-md border border-[var(--border)] bg-[var(--surface)] p-2 shadow-md md:w-72"
+    [class.hidden]="isChatSelected"
+    [class.block]="!isChatSelected"
+    class="md:block"
+  >
+    <div class="flex flex-col gap-1">
+      @for (chat of chats; track chat.id) {
+        <a
+          [routerLink]="['/chats', chat.id]"
+          routerLinkActive="!bg-[var(--safety-orange)] !text-white"
+          class="flex items-center gap-3 rounded-md px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-[var(--border)]/30 hover:cursor-pointer"
+        >
+          <svg lucideUser class="size-5 shrink-0"></svg>
+          <span class="truncate">{{ chat.name }}</span>
+        </a>
+      }
+    </div>
+  </aside>
+
+  <!-- CHAT CONTENT PANEL -->
+  <!-- Hidden on mobile if NO chat is selected; visible on desktop always -->
+  <main 
+    class="min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--surface)] shadow-md"
+    [class.hidden]="!isChatSelected"
+    class="md:block"
+  >
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

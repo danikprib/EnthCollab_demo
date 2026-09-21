@@ -1,6 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { LucideChevronLeft, LucideChevronRight, LucideUpload, LucideAlertTriangle, LucidePlus, LucideX } from '@lucide/angular';
-import { Tags } from '../../shared/models/tags';
+import { Component, HostListener, signal } from '@angular/core';
+import {
+  LucideChevronLeft,
+  LucideChevronRight,
+  LucideUpload,
+  LucideAlertTriangle,
+  LucidePlus,
+  LucideX
+} from '@lucide/angular';
+
 
 @Component({
   selector: 'app-create-project',
@@ -16,22 +23,54 @@ import { Tags } from '../../shared/models/tags';
   styleUrl: './create-project.css',
 })
 export class CreateProject {
-  projectName = 'Autonomous VTOL UAV Flight Controller';
-
-  fakeTags = [
-    'STM32',
-    'C++',
-    'Python',
-    'Computer Vision',
-    'PCB Design',
-    'Embedded Linux'
+  readonly images = [
+    'https://picsum.photos/id/10/1200/700',
+    'https://picsum.photos/id/20/1200/700',
+    'https://picsum.photos/id/30/1200/700',
+    'https://picsum.photos/id/40/1200/700',
+    'https://picsum.photos/id/50/1200/700'
   ];
 
-  descriptionPlaceholder = 'Building an autonomous VTOL UAV platform. The C++ flight controller on STM32 handles sensor fusion, while an onboard Raspberry Pi runs Python/OpenCV for visual target tracking.';
+  readonly currentImageIndex = signal(0);
+  readonly isImageFullscreen = signal(false);
 
-  hazards = [
-    'The main circuit board operates on high voltage / high current',
-    'Always wear eye protection when testing high-RPM carbon propellers',
-    'Wear a hard hat when launching the UAV outdoors, as it might fall on your head'
-  ];
+  readonly tags = ['C++', 'STM32', 'Computer Vision'];
+
+  readonly descriptionPlaceholder =
+    'This is the project description placeholder.';
+
+  get currentImage(): string {
+    return this.images[this.currentImageIndex()];
+  }
+
+  previousImage(): void {
+    this.currentImageIndex.update(index =>
+      index === 0 ? this.images.length - 1 : index - 1
+    );
+  }
+
+  nextImage(): void {
+    this.currentImageIndex.update(index =>
+      index === this.images.length - 1 ? 0 : index + 1
+    );
+  }
+
+  selectImage(index: number): void {
+    this.currentImageIndex.set(index);
+  }
+
+  openImageFullscreen(): void {
+    this.isImageFullscreen.set(true);
+  }
+
+  closeImageFullscreen(): void {
+    this.isImageFullscreen.set(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isImageFullscreen()) {
+      this.closeImageFullscreen();
+    }
+  }
 }

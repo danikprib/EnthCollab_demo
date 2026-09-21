@@ -1,1 +1,41 @@
-<p>chat works!</p>
+<div class="flex h-full flex-col justify-between p-4">
+  
+  <!-- CHAT HEADER -->
+  <div class="flex items-center gap-3 border-b border-[var(--border)] pb-3">
+    
+    <!-- Telegram Back Button (Only visible on Mobile screens) -->
+    <a 
+      routerLink="/chats" 
+      class="rounded-md p-1 hover:bg-[var(--border)]/30 md:hidden"
+      title="Back to chats"
+    >
+      <svg lucideArrowLeft class="size-5"></svg>
+    </a>
+
+    <div class="font-bold text-sm">
+      Conversation #{{ id() }}
+    </div>
+  </div>
+
+  <!-- MESSAGES SCROLL AREA -->
+  <div class="flex-1 overflow-y-auto space-y-3 py-4">
+    <div class="flex justify-start">
+      <div class="max-w-xs rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-xs">
+        Hey! This is a real-time message in chat #{{ id() }}.
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT FIELD -->
+  <div class="flex gap-2 border-t border-[var(--border)] pt-3">
+    <input 
+      type="text" 
+      placeholder="Type a message..." 
+      class="flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-xs focus:outline-none"
+    />
+    <button class="rounded-md bg-[var(--blue)] px-4 py-2 text-xs font-bold text-white hover:opacity-90">
+      Send
+    </button>
+  </div>
+
+</div>

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { LucideArrowLeft } from '@lucide/angular';
 
 @Component({
   selector: 'app-chat',
-  imports: [],
+  imports: [RouterLink, LucideArrowLeft],
   templateUrl: './chat.html',
   styleUrl: './chat.css',
 })
-export class Chat {}
+export class Chat {
+  id = input.required<string>();
+}

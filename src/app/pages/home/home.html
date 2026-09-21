@@ -1,61 +1,61 @@
-<div class="flex flex-col justify-center items-center">
-  <h1 class="font-bold">EnthCollab</h1>
-  <span> Find people. Build projects. Build your portfolio. </span>
-
-  <h2>HOW IT WORKS</h2>
-
-  <div class="flex flex-col gap-2 p-2">
-    <h3>Create Profile</h3>
-    <span>Add your skills and interests</span>
+<div class="max-w-4xl mx-auto px-4 py-8 space-y-12 text-center">
+  <!-- HERO SECTION -->
+  <div class="space-y-2">
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">EnthCollab</h1>
+    <p class="text-sm md:text-base text-[var(--text-secondary)]">
+      Find people. Build projects. Build your portfolio.
+    </p>
   </div>
 
-  <div class="flex flex-col gap-2 p-2">
-    <h3>Find or Create a Project</h3>
-    <span>Find something to work on or start your own idea</span>
-  </div>
+  <!-- HOW IT WORKS SECTION -->
+  <div class="space-y-6">
+    <h2 class="text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)]">
+      How It Works
+    </h2>
 
-  <div class="flex flex-col gap-2 p-2">
-    <h3>Build Your Team</h3>
-    <span>Find developers with the skills your project needs</span>
-  </div>
+    <!-- 4-Column Grid for Steps (Stacks on mobile, 4 columns on desktop) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+      <!-- Step 1 -->
+      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
+        <span class="text-xs font-bold text-[var(--blue)]">01</span>
+        <h3 class="font-bold text-sm">Create Profile</h3>
+        <p class="text-xs text-[var(--text-secondary)]">Add your skills and interests</p>
+      </div>
 
-  <div class="flex flex-col gap-2 p-2">
-    <h3>Collaborate</h3>
-    <span>Work together and build something worth showcasing</span>
-  </div>
+      <!-- Step 2 -->
+      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
+        <span class="text-xs font-bold text-[var(--blue)]">02</span>
+        <h3 class="font-bold text-sm">Find or Create</h3>
+        <p class="text-xs text-[var(--text-secondary)]">
+          Find something to work on or start your own idea
+        </p>
+      </div>
 
-  <h2>WHAT DO YOU WANT TO DO?</h2>
+      <!-- Step 3 -->
+      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
+        <span class="text-xs font-bold text-[var(--blue)]">03</span>
+        <h3 class="font-bold text-sm">Build Your Team</h3>
+        <p class="text-xs text-[var(--text-secondary)]">
+          Find developers with the skills your project needs
+        </p>
+      </div>
 
-  <div class="flex flex-row gap-2 items-center">
-    <div
-      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 gap-3"
-    >
-      <h3>Looking for a project?</h3>
-      <span>Find projects that match your skills and interests</span>
-
-      <button
-        type="submit"
-        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
-      >
-        Explore Projects
-      </button>
-    </div>
-
-    <div
-      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 gap-3"
-    >
-      <h3>Have a project idea?</h3>
-      <span>Create a project and find developers to work with</span>
-
-      <button
-        type="submit"
-        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
-      >
-        Create Project
-      </button>
+      <!-- Step 4 -->
+      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
+        <span class="text-xs font-bold text-[var(--blue)]">04</span>
+        <h3 class="font-bold text-sm">Collaborate</h3>
+        <p class="text-xs text-[var(--text-secondary)]">
+          Work together and build something worth showcasing
+        </p>
+      </div>
     </div>
   </div>
 
-  <h2>FAQ</h2>
-  <app-accordion [items]="homeFaqList"></app-accordion>
+  <!-- FAQ SECTION -->
+  <div class="max-w-2xl mx-auto space-y-4">
+    <h2 class="text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)]">FAQ</h2>
+    <div class="text-left">
+      <app-accordion [items]="homeFaqList"></app-accordion>
+    </div>
+  </div>
 </div>

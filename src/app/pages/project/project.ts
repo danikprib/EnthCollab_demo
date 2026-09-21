@@ -4,6 +4,7 @@ import {
   LucideCircleCheckBig,
   LucideDoorOpen,
   LucideDoorClosed,
+  LucideTrash
 } from '@lucide/angular';
 import { Ticket, TicketDifficulty, TicketStatus } from '../../shared/models/ticket';
 import { Tags } from '../../shared/models/tags';
@@ -16,6 +17,7 @@ import { RouterLink } from '@angular/router';
     LucideCircleCheckBig,
     LucideDoorOpen,
     LucideDoorClosed,
+    LucideTrash,
     RouterLink
   ],
   templateUrl: './project.html',
@@ -23,7 +25,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Project {
 
-  activeTab = 'tickets'; // description | tickets | settings (visible only to owner)
+  activeTab = 'tickets'; // details | tickets | settings (visible only to owner)
 
   readonly TicketStatus = TicketStatus;
   readonly TicketDifficulty = TicketDifficulty;

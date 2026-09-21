@@ -60,7 +60,7 @@ export class Profile {
     {
       id: 2,
       name: 'Edge AI Wildlife Detection Unit',
-      status: ProjectStatus.WIP,
+      status: ProjectStatus.Cancelled,
       visibility: 'Public',
       description: 'Solar-powered remote camera trap. PyTorch model is trained, but needs low-level C++ optimization for deployment on Jetson/Cortex-M microcontrollers.',
       tags: [Tags.AI, Tags.ML, Tags.CPP, Tags.Python]

@@ -1,11 +1,11 @@
 <div class="space-y-3 w-full">
   @for (item of items(); track item.id) {
-    <div class="border border-[var(--border)] bg-[var(--surface)] rounded-md overflow-hidden transition-colors">
+    <div class="border border-[var(--border)] bg-[var(--surface)] rounded-md overflow-hidden">
       
       <button
         type="button"
         (click)="toggleItem(item.id)"
-        class="w-full px-4 py-3 flex items-center justify-between text-left font-bold text-sm hover:bg-[var(--background)] transition-colors focus:outline-none"
+        class="w-full px-4 py-3 flex items-center justify-between text-left font-bold text-sm hover:bg-[var(--background)]"
       >
         <span>{{ item.title }}</span>
         
