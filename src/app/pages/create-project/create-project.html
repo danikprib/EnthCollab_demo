@@ -1,0 +1,88 @@
+<div class="mx-auto max-w-3xl p-4 md:p-6 space-y-6 font-mono text-foreground">
+
+  <!-- PROJECT NAME -->
+  <div class="space-y-1">
+    <label class="text-xs uppercase font-bold text-[var(--text-secondary)]">
+      Project Name (UAV-related)
+    </label>
+    <div class="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 text-lg font-bold">
+      {{ projectName }}
+    </div>
+  </div>
+
+  <!-- IMAGE CAROUSEL PLACEHOLDER (MAX 5 IMAGES) -->
+  <div class="space-y-1">
+    <div class="flex justify-between text-xs uppercase font-bold text-[var(--text-secondary)]">
+      <span>Image Carousel</span>
+      <span>Max 5 Images</span>
+    </div>
+
+    <div class="relative w-full h-48 border border-[var(--border)] bg-[var(--background)] rounded-md flex items-center justify-between px-4 text-center">
+      <button type="button" class="border border-[var(--border)] p-2 rounded-md opacity-50 cursor-not-allowed">
+        <svg lucideChevronLeft class="size-5"></svg>
+      </button>
+
+      <div class="text-xs text-muted-foreground font-semibold">
+        [ Image Carousel Placeholder — 1 / 5 ]
+      </div>
+
+      <button type="button" class="border border-[var(--border)] p-2 rounded-md opacity-50 cursor-not-allowed">
+        <svg lucideChevronRight class="size-5"></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- TAGS PLACEHOLDER -->
+  <div class="space-y-1">
+    <label class="text-xs uppercase font-bold text-[var(--text-secondary)]">
+      Tags
+    </label>
+
+    <div class="border border-[var(--border)] bg-[var(--surface)] p-3 rounded-md flex flex-wrap gap-2">
+      @for (tag of fakeTags; track tag) {
+        <span class="border border-[var(--blue)] bg-[var(--blue)]/10 text-[var(--blue)] rounded-full px-3 py-1 text-xs font-semibold">
+          {{ tag }}
+        </span>
+      }
+    </div>
+  </div>
+
+  <!-- DESCRIPTION PLACEHOLDER (MAX 500 SYMBOLS) -->
+  <div class="space-y-1">
+    <div class="flex justify-between text-xs uppercase font-bold text-[var(--text-secondary)]">
+      <span>Description</span>
+      <span>Max 500 symbols</span>
+    </div>
+
+    <div class="w-full rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 text-xs leading-relaxed">
+      {{ descriptionPlaceholder }}
+    </div>
+  </div>
+
+  <!-- HAZARDS & SAFETY NOTICES (SAFETY ORANGE) -->
+  <div class="border-2 border-[#FF5F00] bg-[#FF5F00]/5 rounded-md p-4 space-y-3">
+    <div class="flex items-center gap-2 text-[#FF5F00]">
+      <svg lucideAlertTriangle class="size-5"></svg>
+      <h3 class="text-sm font-bold uppercase tracking-wider">
+        Hazards
+      </h3>
+    </div>
+
+    <ol class="list-decimal list-inside space-y-2 text-xs leading-relaxed">
+      @for (hazard of hazards; track $index) {
+        <li class="border-b border-[#FF5F00]/20 pb-1">
+          {{ hazard }}
+        </li>
+      }
+    </ol>
+  </div>
+
+  <!-- CREATE BUTTON -->
+  <button
+    type="button"
+    class="w-full bg-[var(--blue)] text-white py-3 rounded-md font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity"
+  >
+    Create Project
+  </button>
+
+</div>

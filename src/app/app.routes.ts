@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Signup } from './pages/signup/signup';
 import { Project } from './pages/project/project';
+import { CreateProject } from './pages/create-project/create-project';
 
 export const routes: Routes = [
 
@@ -31,6 +32,11 @@ export const routes: Routes = [
         path: 'project/:projectId',
         component: Project,
         title: 'Project Page'
+    },
+    {
+        path: 'create-project',
+        component: CreateProject,
+        title: 'Create Project'
     }
     
 

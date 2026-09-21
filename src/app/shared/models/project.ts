@@ -1,3 +1,5 @@
+import { Tags } from "./tags";
+
 export enum ProjectStatus {
   WIP = 'WIP',
   Finished = 'Finished',
@@ -11,5 +13,5 @@ export interface Project {
   status: ProjectStatus;
   visibility: 'Public' | 'Private';
   description: string;
-  tags: string[];
+  tags: Tags[];
 }

@@ -1,1 +1,61 @@
-<p>home works!</p>
+<div class="flex flex-col justify-center items-center">
+  <h1 class="font-bold">EnthCollab</h1>
+  <span> Find people. Build projects. Build your portfolio. </span>
+
+  <h2>HOW IT WORKS</h2>
+
+  <div class="flex flex-col gap-2 p-2">
+    <h3>Create Profile</h3>
+    <span>Add your skills and interests</span>
+  </div>
+
+  <div class="flex flex-col gap-2 p-2">
+    <h3>Find or Create a Project</h3>
+    <span>Find something to work on or start your own idea</span>
+  </div>
+
+  <div class="flex flex-col gap-2 p-2">
+    <h3>Build Your Team</h3>
+    <span>Find developers with the skills your project needs</span>
+  </div>
+
+  <div class="flex flex-col gap-2 p-2">
+    <h3>Collaborate</h3>
+    <span>Work together and build something worth showcasing</span>
+  </div>
+
+  <h2>WHAT DO YOU WANT TO DO?</h2>
+
+  <div class="flex flex-row gap-2 items-center">
+    <div
+      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 gap-3"
+    >
+      <h3>Looking for a project?</h3>
+      <span>Find projects that match your skills and interests</span>
+
+      <button
+        type="submit"
+        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
+      >
+        Explore Projects
+      </button>
+    </div>
+
+    <div
+      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 gap-3"
+    >
+      <h3>Have a project idea?</h3>
+      <span>Create a project and find developers to work with</span>
+
+      <button
+        type="submit"
+        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
+      >
+        Create Project
+      </button>
+    </div>
+  </div>
+
+  <h2>FAQ</h2>
+  <app-accordion [items]="homeFaqList"></app-accordion>
+</div>

@@ -1,17 +1,190 @@
-<div class="flex flex-row gap-2 justify-center">
-  <div class="flex flex-col gap-2 rounded border p-2">
-    <h2 class="font-bold">Project Name</h2>
+<div class="mx-auto flex max-w-5xl flex-col gap-4 p-4 md:flex-row">
+  <div
+    class="w-full shrink-0 rounded-md border border-[var(--border)] bg-[var(--surface)] shadow-lg md:w-64 p-4"
+  >
+    <h1>PROJECT INFO</h1>
 
-    <div class="flex flex-row items-center gap-2 justify-center">
-      <svg lucideCirclePause class="size-3 text-[var(--cyan)]"></svg>
-      <span> Frozen </span>
+    <svg lucideHammer class="size-6"></svg>
+
+    <h2>Identity</h2>
+    <div class="flex flex-row gap-2 items-center">
+      <svg lucideIdCard class="size-4 text-[var(--text-secondary)]"></svg>
+      <label class="font-semibold">ID</label>
+    </div>
+    <span>ID14</span>
+    <div class="flex flex-row gap-2 items-center">
+      <svg lucideUser class="size-4 text-[var(--text-secondary)]"></svg>
+      <label class="font-semibold">Name</label>
+    </div>
+    <span>MY_PROJECT</span>
+
+    <h2>Activity</h2>
+
+    <div class="flex flex-row gap-2 items-center">
+      <h2>LIKES:</h2>
+      <span>147</span>
+    </div>
+    <div class="flex flex-row gap-2 items-center">
+      <h2>CONTRIBUTORS:</h2>
+      <span>23</span>
     </div>
 
-    <span>Likes: 2</span>
-    <span> Comments: 5</span>
+    <div class="flex flex-row flex-wrap gap-1 items-center">
+      <h2>Created at:</h2>
+      <span>14 September 2026 (1 year, 28 day(s) ago)</span>
+    </div>
+  </div>
 
-    <div class="flex flex-wrap">
-      <div class="rounded-lg border">C#</div>
+  <div
+    class="min-w-0 w-full rounded-md border border-[var(--border)] bg-[var(--surface)] shadow-lg p-4 md:flex-1"
+  >
+    <nav class="flex w-full overflow-x-auto bg-[var(--surface)]">
+      <button
+        type="button"
+        (click)="activeTab = 'description'"
+        [class.border-b-2]="activeTab === 'description'"
+        [class.font-semibold]="activeTab === 'description'"
+        class="shrink-0 px-4 py-2"
+      >
+        Description
+      </button>
+
+      <button
+        type="button"
+        (click)="activeTab = 'tickets'"
+        [class.border-b-2]="activeTab === 'tickets'"
+        [class.font-semibold]="activeTab === 'tickets'"
+        class="shrink-0 px-4 py-2"
+      >
+        Tickets
+      </button>
+
+      <button
+        type="button"
+        (click)="activeTab = 'settings'"
+        [class.border-b-2]="activeTab === 'settings'"
+        [class.font-semibold]="activeTab === 'settings'"
+        class="shrink-0 px-4 py-2"
+      >
+        Settings
+      </button>
+    </nav>
+
+    <div class="p-4">
+      @if (activeTab === 'description') {
+        <div class="flex flex-col w-full max-w-md gap-2">
+          <label>Project ID</label>
+          <input
+            readonly
+            type="text"
+            class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+            value="ID14"
+          />
+
+          <label>Name</label>
+          <input
+            type="text"
+            class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+            value="John Doe"
+          />
+
+          <label>Likes</label>
+          <input
+            type="text"
+            class="w-full readonlyrounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+            value="28"
+          />
+
+          <button class="mt-2 rounded-md border border-[var(--blue)] px-4 py-2">
+            Save Changes
+          </button>
+        </div>
+      }
+
+      @if (activeTab === 'tickets') {
+        <div
+          class="flex flex-col gap-2 p-2 border border-[var(--border)] bg-[var(--background)] overflow-y-auto h-80 w-full"
+        >
+          @for (ticket of tickets; track ticket.id) {
+            <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
+              <div class="flex flex-row justify-between">
+                <div class="flex flex-row items-center gap-2 justify-center">
+                  @switch (ticket.status) {
+                    @case (TicketStatus.Open) {
+                      <svg lucideDoorOpen class="size-4 text-[var(--cyan)]"></svg>
+                    }
+                    @case (TicketStatus.Taken) {
+                      <svg lucideDoorClosed class="size-4 text-[var(--amber)]"></svg>
+                    }
+                    @case (TicketStatus.Done) {
+                      <svg lucideCircleCheckBig class="size-4 text-[var(--green)]"></svg>
+                    }
+                  }
+                  <span>
+                    {{ ticket.status }}
+                  </span>
+                </div>
+                <span
+                  class="rounded-full border px-2 py-1"
+                  [style.border-color]="
+                    ticket.difficulty === TicketDifficulty.Easy
+                      ? 'var(--green)'
+                      : ticket.difficulty === TicketDifficulty.Medium
+                        ? 'var(--amber)'
+                        : 'var(--red)'
+                  "
+                >
+                  {{ ticket.difficulty }}
+                </span>
+              </div>
+              <a
+                [routerLink]="['/ticket', ticket.id]"
+                class="font-semibold text-[var(--blue)] hover:underline"
+                >{{ ticket.name }}</a
+              >
+              <p>{{ ticket.description }}</p>
+              <div class="flex flex-wrap gap-2 mt-2">
+                @for (tag of ticket.tags; track $index) {
+                  <span class="rounded-full border px-2 py-1">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      @if (activeTab === 'settings') {
+        <label class="text-[var(--red)] font-bold">Danger Zone</label>
+        <div class="border border-[var(--red)] rounded-md mt-2 p-4">
+          <div class="flex items-center justify-between gap-6 py-4">
+            <div class="min-w-0">
+              <h3 class="font-semibold">Change project visibility</h3>
+              <p class="text-[var(--text-secondary)]">This project is currently public</p>
+            </div>
+
+            <button class="shrink-0 rounded-md border border-[var(--red)] px-4 py-2 hover:text-[var(--red)]">
+              Change Visibility
+            </button>
+          </div>
+
+          <div class="border-t border-[var(--border)]"></div>
+
+          <div class="flex items-center justify-between gap-6 py-4">
+            <div class="min-w-0">
+              <h3 class="font-semibold">Delete this project</h3>
+              <p class="text-[var(--text-secondary)]">
+                Once you delete a project, it cannot be recovered. Please be certain.
+              </p>
+            </div>
+
+            <button class="shrink-0 rounded-md border border-[var(--red)] px-4 py-2 hover:text-[var(--red)]">
+              Delete Project
+            </button>
+          </div>
+        </div>
+      }
     </div>
   </div>
 </div>

@@ -13,6 +13,7 @@
   --magenta: #8a2d91;
   --cyan: #087080;
   --blue: #175cd3;
+  --safety-orange: #b33e00;
 }
 
 .dark {
@@ -28,6 +29,7 @@
   --magenta: #d06bd9;
   --cyan: #45c4d6;
   --blue: #4d8dff;
+  --safety-orange: #ff6b1a;
 }
 
 html,
