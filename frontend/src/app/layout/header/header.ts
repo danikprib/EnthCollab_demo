@@ -3,21 +3,17 @@ import { ThemeService } from '../../core/services/theme.service';
 import {
   LucideSun,
   LucideMoon,
-  LucideSearch,
   LucideX,
   LucideMenu
 } from '@lucide/angular';
 import { RouterLink } from '@angular/router';
-
-
-
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
   imports: [
     LucideSun,
     LucideMoon,
-    LucideSearch,
     LucideX,
     LucideMenu,
     RouterLink],
@@ -26,6 +22,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Header {
   theme = inject(ThemeService);
+  auth = inject(AuthService)
 
   mobileMenuOpened = signal(false);
 

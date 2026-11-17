@@ -1,47 +1,69 @@
-<div class="flex min-h-[calc(100vh-4rem)] items-center md:justify-center px-4 py-8">
-  <div class="w-full max-w-md rounded-md border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
-    <form class="flex flex-col gap-4">
-      <h2 class="text-xl font-bold">Log in to your account</h2>
+<div class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-8">
+  <div
+    class="w-full max-w-md rounded-md border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg"
+  >
+    <form class="flex flex-col gap-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 class="text-xl font-bold">Log in into your account</h2>
 
       <div class="flex flex-col gap-2">
-        <label for="username">Username or email</label>
+        <label for="email">Email</label>
         <input
-          id="username"
-          type="text"
+          id="email"
+          type="email"
+          formControlName="email"
           class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
           placeholder="john.doe@gmail.com"
         />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <p class="text-sm text-red-500">Enter email address.</p>
+        }
       </div>
 
       <div class="flex flex-col gap-2">
         <label for="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
-          placeholder="Test12!_"
-        />
+        <div class="relative">
+          <input
+            id="password"
+            [type]="showPassword() ? 'text' : 'password'"
+            formControlName="password"
+            class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+            placeholder="Test12!_"
+          />
+          <button
+            type="button"
+            (click)="togglePasswordVisibility()"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] hover:text-[var(--text)] hover:cursor-pointer"
+            [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
+          >
+            @if (showPassword()) {
+              <svg lucideEyeOff class="size-4"></svg>
+            } @else {
+              <svg lucideEye class="size-4"></svg>
+            }
+          </button>
+        </div>
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+          <p class="text-sm text-red-500">Enter password</p>
+        }
       </div>
 
-      <a
-        routerLink="/forgot-password"
-        class="text-[var(--blue)] hover:underline"
-      >
-        Forgot Password?
-      </a>
+      @if (errorMessage()) {
+        <p class="rounded-md border border-red-500 px-3 py-2 text-sm text-red-500">
+          {{ errorMessage() }}
+        </p>
+      }
 
       <button
         type="submit"
-        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white"
+        [disabled]="submitting()"
+        class="rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white disabled:opacity-50"
       >
-        Login
+        {{ submitting() ? 'Logging in…' : 'Log In' }}
       </button>
 
       <div class="mt-2 flex flex-wrap items-center justify-center gap-1 text-sm">
-        <span class="text-[var(--text-secondary)]">Don't have an account yet?</span>
-        <a routerLink="/signup" class="text-[var(--blue)] hover:underline">
-          Sign up
-        </a>
+        <span class="text-[var(--text-secondary)]">Don't have an account?</span>
+        <a routerLink="/signup" class="text-[var(--blue)] hover:underline">Sign Up</a>
       </div>
     </form>
   </div>

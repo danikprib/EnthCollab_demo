@@ -1,4 +1,4 @@
-import { Tags } from "./tags";
+import { Tag } from "./tag";
 
 export enum ProjectStatus {
   WIP = 'WIP',
@@ -7,11 +7,18 @@ export enum ProjectStatus {
   Frozen = 'Frozen'
 }
 
+export enum ProjectVisibility {
+  Public = 'Public',
+  Private = 'Private'
+}
+
 export interface Project {
   id: number;
   name: string;
   status: ProjectStatus;
-  visibility: 'Public' | 'Private';
+  visibility: ProjectVisibility;
   description: string;
-  tags: Tags[];
+  hazard: string;
+  createdByUserId: number;
+  tags: Tag[];
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnthCollab.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eaf45dba54392c91b3969820c3bcec79c2321316")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a574170bc1965fa113fe573f70d1bc270ed913")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnthCollab.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnthCollab.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

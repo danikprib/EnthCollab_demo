@@ -24,21 +24,6 @@ public enum TicketDifficulty
 {
     Easy,
     Medium,
-    Hard
-}
-
-public enum Tag
-{
-    Python,
-    CSharp,
-    CPP,
-    C,
-    STM32,
-    ComputerVision,
-    AI,
-    ML,
-    Angular,
-    ASPNET,
-    PostgreSQL,
-    Documentation
+    Hard,
+    Advanced
 }

@@ -5,8 +5,6 @@ import {
   Input,
   Type,
   ViewEncapsulation,
-  __spreadProps,
-  __spreadValues,
   computed,
   inject,
   input,
@@ -33,7 +31,11 @@ import {
   ɵɵstoreLet,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-6AQV7TT4.js";
+} from "./chunk-GHP7YCLX.js";
+import {
+  __spreadProps,
+  __spreadValues
+} from "./chunk-PJVWDKLX.js";
 
 // node_modules/@lucide/angular/fesm2022/lucide-angular.mjs
 var _c0 = ["lucideIcon", ""];

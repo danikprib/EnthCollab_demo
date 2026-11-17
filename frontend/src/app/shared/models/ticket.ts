@@ -1,4 +1,4 @@
-import { Tags } from "./tags";
+import { Tag } from "./tag";
 
 export enum TicketStatus {
   Open = 'Open',
@@ -10,13 +10,15 @@ export enum TicketDifficulty {
   Easy = 'Easy',
   Medium = 'Medium',
   Hard = 'Hard',
+  Advanced = 'Advanced',
 }
 
 export interface Ticket {
   id: number;
   name: string;
   status: TicketStatus;
-  difficulty: TicketDifficulty,
+  difficulty: TicketDifficulty;
   description: string;
-  tags: Tags[];
+  projectId: number;
+  tags: Tag[];
 }

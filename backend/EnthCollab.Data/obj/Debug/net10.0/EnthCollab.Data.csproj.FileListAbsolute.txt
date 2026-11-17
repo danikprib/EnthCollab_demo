@@ -1,0 +1,14 @@
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\bin\Debug\net10.0\EnthCollab.Data.deps.json
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\bin\Debug\net10.0\EnthCollab.Data.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\bin\Debug\net10.0\EnthCollab.Data.pdb
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.csproj.AssemblyReference.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.AssemblyInfoInputs.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.AssemblyInfo.cs
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.csproj.CoreCompileInputs.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.sourcelink.json
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\refint\EnthCollab.Data.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthCollab.Data.pdb
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\ref\EnthCollab.Data.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Data\obj\Debug\net10.0\EnthColl.8523233C.Up2Date

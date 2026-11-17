@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   LucideUser,
   LucideCircleUserRound,
@@ -15,14 +15,19 @@ import {
   LucideHammer,
   LucideCirclePlus
 } from '@lucide/angular';
-import { Project, ProjectStatus } from '../../shared/models/project';
-import { Tags } from '../../shared/models/tags';
+import { Project, ProjectStatus, ProjectVisibility } from '../../shared/models/project';
+import { Tag } from '../../shared/models/tag';
 import { RouterLink } from '@angular/router';
+import { CommonModule, DatePipe } from '@angular/common';
+import { UserService } from '../../core/services/user.service';
+import { AuthService } from '../../core/services/auth.service';
+import { UserProfile } from '../../shared/models/user-profile';
+import { ProjectService } from '../../core/services/project.service';
 
 
 @Component({
   selector: 'app-profile',
-  imports: [
+  imports: [CommonModule, DatePipe,
     LucideUser,
     LucideCircleUserRound,
     LucideTriangle,
@@ -42,44 +47,50 @@ import { RouterLink } from '@angular/router';
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
-export class Profile {
+export class Profile implements OnInit {
+private userService = inject(UserService);
+  private authService = inject(AuthService);
+  private projectService = inject(ProjectService);
+
+  ngOnInit(): void {
+    const currentUserId = this.authService.currentUser()?.userId;
+
+    if (!currentUserId) {
+      this.errorMessage.set('User is not logged in.');
+      this.isLoading.set(false);
+      return;
+    }
+
+    // 1. Fetch User Profile Info
+    this.userService.getUserProfile(currentUserId).subscribe({
+      next: (data) => {
+        this.profile.set(data);
+        this.isLoading.set(false);
+      },
+      error: (err) => {
+        console.error('Failed to fetch user profile:', err);
+        this.errorMessage.set('Failed to load user profile information.');
+        this.isLoading.set(false);
+      }
+    });
+
+    this.projectService.getProjectsByUser(currentUserId).subscribe({
+      next: (projectsData) => {
+        this.projects.set(projectsData);
+      },
+      error: (err) => {
+        console.error('Failed to fetch user projects:', err);
+      }
+    });
+  }
+
+  readonly profile = signal<UserProfile | null>(null);
+  readonly isLoading = signal<boolean>(true);
+  readonly errorMessage = signal<string | null>(null);
 
   readonly ProjectStatus = ProjectStatus;
 
   activeTab = 'projects';
 
-  readonly projects: Project[] = [
-    {
-      id: 1,
-      name: 'Autonomous UGV Target Tracker',
-      status: ProjectStatus.WIP,
-      visibility: 'Public',
-      description: 'STM32-based ground rover with real-time motor control and serial interface. Needs an engineer to write the higher-level Python OpenCV object tracking pipeline.',
-      tags: [Tags.STM32, Tags.CPP, Tags.Python, Tags.ComputerVision]
-    },
-    {
-      id: 2,
-      name: 'Edge AI Wildlife Detection Unit',
-      status: ProjectStatus.Cancelled,
-      visibility: 'Public',
-      description: 'Solar-powered remote camera trap. PyTorch model is trained, but needs low-level C++ optimization for deployment on Jetson/Cortex-M microcontrollers.',
-      tags: [Tags.AI, Tags.ML, Tags.CPP, Tags.Python]
-    },
-    {
-      id: 3,
-      name: 'CAN Bus Telemetry Dashboard',
-      status: ProjectStatus.WIP,
-      visibility: 'Public',
-      description: 'Web dashboard for parsing vehicle sensor metrics over OBD-II/CAN bus. Embedded C side reads frames; Angular/ASP.NET side stores and renders telemetry streams.',
-      tags: [Tags.C, Tags.ASPNET, Tags.Angular, Tags.PostgreSQL]
-    },
-    {
-      id: 4,
-      name: 'SDR RF Spectrum Analyzer',
-      status: ProjectStatus.Frozen,
-      visibility: 'Public',
-      description: 'Web-based real-time RF waterfall graph renderer. C++ engine captures raw USB I/Q samples, ASP.NET backend streams data over WebSockets to an Angular front-end.',
-      tags: [Tags.CPP, Tags.ASPNET, Tags.Angular, Tags.Documentation]
-    }
-  ];
+  readonly projects = signal<Project[]>([]);
 }

@@ -1,0 +1,14 @@
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\bin\Debug\net9.0\EnthCollab.Business.deps.json
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\bin\Debug\net9.0\EnthCollab.Business.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\bin\Debug\net9.0\EnthCollab.Business.pdb
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.csproj.AssemblyReference.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.AssemblyInfoInputs.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.AssemblyInfo.cs
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.csproj.CoreCompileInputs.cache
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.sourcelink.json
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\refint\EnthCollab.Business.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthCollab.Business.pdb
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\ref\EnthCollab.Business.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Business\obj\Debug\net9.0\EnthColl.9D26D04D.Up2Date
