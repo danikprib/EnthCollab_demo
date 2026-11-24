@@ -1,1 +1,298 @@
-<p>user works!</p>
+@if (isLoading()) {
+  <div class="flex min-h-[50vh] items-center justify-center p-8">
+    <span class="text-lg text-[var(--text-secondary)]">Loading user profile...</span>
+  </div>
+} @else if (errorMessage()) {
+  <div class="mx-auto max-w-xl p-4">
+    <div class="rounded-md border border-[var(--red)] bg-[var(--surface)] p-4 text-[var(--red)]">
+      {{ errorMessage() }}
+    </div>
+  </div>
+} @else if (profile(); as user) {
+  <div class="mx-auto flex max-w-5xl flex-col gap-4 p-4 md:flex-row">
+    <!-- LEFT SIDEBAR: USER INFO -->
+    <div
+      class="w-full shrink-0 rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-lg md:w-64"
+    >
+      <h1 class="text-xs font-bold uppercase text-[var(--text-secondary)]">USER INFO</h1>
+
+      <div class="my-3 flex items-center justify-center">
+        <svg lucideCircleUserRound class="size-12 text-[var(--text-secondary)]"></svg>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <h2 class="font-semibold">Identity</h2>
+        <button
+          type="button"
+          (click)="copyIdentity()"
+          class="inline-flex items-center gap-1 rounded border border-[var(--border)] bg-[var(--background)] px-2 py-0.5 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+          title="Copy full identity info"
+        >
+          @if (copiedKey() === 'identity') {
+            <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+            <span class="text-[var(--green)]">Copied</span>
+          } @else {
+            <svg lucideCopy class="size-3"></svg>
+            <span>Copy</span>
+          }
+        </button>
+      </div>
+      <div class="my-2 border-t border-[var(--border)]"></div>
+
+      <div class="flex flex-col gap-2.5 text-sm">
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideIdCard class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">ID</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('id', user.id)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+            >
+              @if (copiedKey() === 'id') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6">{{ user.id }}</span>
+        </div>
+
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideUser class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">Username</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('username', user.username)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+            >
+              @if (copiedKey() === 'username') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6">{{ user.username }}</span>
+        </div>
+
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideMail class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">Email</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('email', user.email)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+            >
+              @if (copiedKey() === 'email') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6 truncate">{{ user.email }}</span>
+        </div>
+      </div>
+
+      <div class="my-3 border-t border-[var(--border)]"></div>
+      <h2 class="font-semibold">Activity</h2>
+
+      <div class="mt-2 flex flex-col gap-2 text-sm">
+        <div class="flex flex-row items-center gap-2">
+          <svg lucideHammer class="size-4 text-[var(--text-secondary)]"></svg>
+          <span class="font-semibold">PROJECTS:</span>
+          <span>{{ user.projectsCount ?? 0 }}</span>
+        </div>
+
+        <div class="flex flex-row items-center gap-2">
+          <svg lucideThumbsUp class="size-4 text-[var(--text-secondary)]"></svg>
+          <span class="font-semibold">LIKES:</span>
+          <span>{{ user.likesCount ?? 0 }}</span>
+        </div>
+
+        <div
+          class="mt-2 flex flex-row flex-wrap items-center gap-1 text-xs text-[var(--text-secondary)]"
+        >
+          <svg lucideCalendar class="size-4"></svg>
+          <span class="font-semibold">Member since:</span>
+          <span>{{ user.memberSince | date: 'd MMMM yyyy' }}</span>
+        </div>
+      </div>
+
+      @if (isOwnProfile()) {
+        <a
+          routerLink="/profile"
+          class="mt-4 block w-full rounded-md border border-[var(--blue)] px-3 py-2 text-center text-xs font-semibold text-[var(--blue)] transition-colors hover:bg-[var(--blue)] hover:text-white"
+        >
+          Edit My Profile
+        </a>
+      }
+    </div>
+
+    <!-- RIGHT MAIN CONTENT: TABS -->
+    <div
+      class="min-w-0 w-full rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-lg md:flex-1"
+    >
+      <nav class="flex w-full overflow-x-auto border-b border-[var(--border)] bg-[var(--surface)]">
+        <button
+          type="button"
+          (click)="activeTab = 'overview'"
+          [class.border-b-2]="activeTab === 'overview'"
+          [class.border-[var(--blue)]]="activeTab === 'overview'"
+          [class.font-semibold]="activeTab === 'overview'"
+          class="shrink-0 px-4 py-2 cursor-pointer"
+        >
+          Overview
+        </button>
+
+        <button
+          type="button"
+          (click)="activeTab = 'projects'"
+          [class.border-b-2]="activeTab === 'projects'"
+          [class.border-[var(--blue)]]="activeTab === 'projects'"
+          [class.font-semibold]="activeTab === 'projects'"
+          class="shrink-0 px-4 py-2 cursor-pointer"
+        >
+          Projects
+        </button>
+      </nav>
+
+      <div class="pt-4">
+        @if (activeTab === 'overview') {
+          <div class="flex flex-col w-full max-w-xl gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div class="flex flex-col gap-1">
+                <span
+                  class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  First Name
+                </span>
+                <div
+                  class="rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm"
+                >
+                  {{ user.firstName || 'Not provided' }}
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <span
+                  class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  Last Name
+                </span>
+                <div
+                  class="rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm"
+                >
+                  {{ user.lastName || 'Not provided' }}
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <span
+                class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+              >
+                Bio
+              </span>
+              <div
+                class="min-h-[120px] whitespace-pre-wrap rounded-md border border-[var(--border)] bg-[var(--background)] p-3 text-sm leading-relaxed"
+              >
+                {{ user.bio || 'No bio provided.' }}
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <span
+                class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+              >
+                Tags
+              </span>
+              <div class="flex flex-wrap gap-2">
+                @for (tagName of getResolvedTagNames(); track tagName) {
+                  <span
+                    class="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-xs font-medium text-[var(--text)]"
+                  >
+                    {{ tagName }}
+                  </span>
+                } @empty {
+                  <span class="text-xs text-[var(--text-secondary)]">No tags listed.</span>
+                }
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (activeTab === 'projects') {
+          <div
+            class="flex flex-col gap-2 p-2 border border-[var(--border)] bg-[var(--background)] overflow-y-auto max-h-[30rem] w-full rounded-md"
+          >
+            @for (project of visibleProjects(); track project.id) {
+              <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
+                <div class="flex flex-row justify-between items-center mb-2">
+                  <div class="flex flex-row items-center gap-2">
+                    @switch (project.status) {
+                      @case (ProjectStatus.Finished) {
+                        <svg lucideCircleCheckBig class="size-4 text-[var(--green)]"></svg>
+                      }
+                      @case (ProjectStatus.Frozen) {
+                        <svg lucideCirclePause class="size-4 text-[var(--cyan)]"></svg>
+                      }
+                      @case (ProjectStatus.WIP) {
+                        <svg lucideTriangle class="size-4 text-[var(--amber)]"></svg>
+                      }
+                      @case (ProjectStatus.Cancelled) {
+                        <svg lucideSquareX class="size-4 text-[var(--red)]"></svg>
+                      }
+                    }
+                    <span class="text-sm font-medium">{{ project.status }}</span>
+                  </div>
+                  <span class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs">
+                    {{ project.visibility }}
+                  </span>
+                </div>
+
+                <a
+                  [routerLink]="['/project', project.id]"
+                  class="font-semibold text-[var(--blue)] hover:underline"
+                >
+                  {{ project.name }}
+                </a>
+                <p class="text-sm mt-1 text-[var(--text-secondary)]">{{ project.description }}</p>
+
+                <div class="flex flex-wrap gap-2 mt-3">
+                  @for (tag of project.tags; track $index) {
+                    <span
+                      class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs bg-[var(--background)]"
+                    >
+                      {{ getProjectTagName(tag) }}
+                    </span>
+                  }
+                </div>
+              </div>
+            } @empty {
+              <div class="p-4 text-center text-[var(--text-secondary)]">
+                No public projects to display.
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

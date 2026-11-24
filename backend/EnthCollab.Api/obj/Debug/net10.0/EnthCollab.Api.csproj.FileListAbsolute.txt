@@ -156,3 +156,4 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\refin
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\EnthCollab.Api.pdb
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\EnthCollab.Api.genruntimeconfig.cache
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\ref\EnthCollab.Api.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

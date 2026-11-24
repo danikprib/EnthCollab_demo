@@ -10,11 +10,13 @@ import {
   LucideSquareX,
   LucideSlidersHorizontal,
   LucideX,
-  LucideCirclePlus
+  LucideCirclePlus,
+  LucideThumbsUp,
+  LucideSearch,
 } from '@lucide/angular';
-import { ProjectSummary, ProjectStatus } from '../../shared/models/project';
+import { Project, ProjectStatus } from '../../shared/models/project';
 import { Tag } from '../../shared/models/tag';
-
+import { ProjectService } from '../../core/services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -29,21 +31,23 @@ import { Tag } from '../../shared/models/tag';
     LucideSlidersHorizontal,
     LucideX,
     LucideCirclePlus,
+    LucideThumbsUp,
+    LucideSearch,
   ],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })
 export class Projects implements OnInit {
   private http = inject(HttpClient);
+  private projectService = inject(ProjectService);
 
   readonly ProjectStatus = ProjectStatus;
 
   readonly isFilterMobileOpen = signal<boolean>(false);
-
   readonly searchQuery = signal<string>('');
-
   readonly selectedStatuses = signal<Set<ProjectStatus>>(new Set());
   readonly selectedTagNames = signal<Set<string>>(new Set());
+  readonly togglingLikeIds = signal<Set<number>>(new Set());
 
   readonly activeFilterCount = computed(
     () => this.selectedStatuses().size + this.selectedTagNames().size
@@ -56,9 +60,8 @@ export class Projects implements OnInit {
     { label: 'Cancelled', value: ProjectStatus.Cancelled },
   ];
 
-  // Fetched from database
   readonly tagOptions = signal<Tag[]>([]);
-  readonly projects = signal<ProjectSummary[]>([]);
+  readonly projects = signal<Project[]>([]);
 
   ngOnInit(): void {
     this.fetchTags();
@@ -68,15 +71,19 @@ export class Projects implements OnInit {
   fetchTags(): void {
     this.http.get<Tag[]>('https://localhost:7036/api/tags').subscribe({
       next: (tags) => this.tagOptions.set(tags),
-      error: (err) => console.error('Failed to load tags:', err)
+      error: (err) => console.error('Failed to load tags:', err),
     });
   }
 
   fetchProjects(): void {
-    this.http.get<ProjectSummary[]>('https://localhost:7036/api/Projects').subscribe({
+    this.projectService.getProjects().subscribe({
       next: (data) => this.projects.set(data),
-      error: (err) => console.error('Failed to load projects:', err)
+      error: (err) => console.error('Failed to load projects:', err),
     });
+  }
+
+  getTagName(tag: Tag | string): string {
+    return typeof tag === 'string' ? tag : tag.name;
   }
 
   readonly filteredProjects = computed(() => {
@@ -84,8 +91,7 @@ export class Projects implements OnInit {
     const activeStatuses = this.selectedStatuses();
     const activeTags = this.selectedTagNames();
 
-    return this.projects().filter((project:ProjectSummary) => {
-
+    return this.projects().filter((project: Project) => {
       const matchesSearch =
         !query ||
         project.name.toLowerCase().includes(query) ||
@@ -94,13 +100,54 @@ export class Projects implements OnInit {
       const matchesStatus =
         activeStatuses.size === 0 || activeStatuses.has(project.status);
 
+      const projectTagNames = (project.tags ?? []).map((t) => this.getTagName(t));
       const matchesTag =
         activeTags.size === 0 ||
-        project.tags.some((tagName) => activeTags.has(tagName));
+        projectTagNames.some((tagName) => activeTags.has(tagName));
 
       return matchesSearch && matchesStatus && matchesTag;
     });
   });
+
+  toggleLike(project: Project): void {
+    const busy = this.togglingLikeIds();
+    if (busy.has(project.id)) return;
+
+    const currentlyLiked = Boolean(project.likedByMe);
+    const request$ = currentlyLiked
+      ? this.projectService.unlikeProject(project.id)
+      : this.projectService.likeProject(project.id);
+
+    const nextBusy = new Set(busy);
+    nextBusy.add(project.id);
+    this.togglingLikeIds.set(nextBusy);
+
+    request$.subscribe({
+      next: () => {
+        const delta = currentlyLiked ? -1 : 1;
+        this.projects.update((list) =>
+          list.map((p) =>
+            p.id === project.id
+              ? {
+                  ...p,
+                  likedByMe: !currentlyLiked,
+                  likesCount: Math.max(0, (p.likesCount ?? 0) + delta),
+                }
+              : p
+          )
+        );
+        const updatedBusy = new Set(this.togglingLikeIds());
+        updatedBusy.delete(project.id);
+        this.togglingLikeIds.set(updatedBusy);
+      },
+      error: (err) => {
+        console.error('Failed to toggle like:', err);
+        const updatedBusy = new Set(this.togglingLikeIds());
+        updatedBusy.delete(project.id);
+        this.togglingLikeIds.set(updatedBusy);
+      },
+    });
+  }
 
   toggleMobileFilter(): void {
     this.isFilterMobileOpen.update((value) => !value);

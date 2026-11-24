@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\geminiagentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\geminiagentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\controllers\\projectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\controllers\\projectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +21,38 @@
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\projectlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\projectlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\enthcollabdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\enthcollabdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\projectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\projectprojections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\projectprojections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\dtos\\projectsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\dtos\\projectsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\dtos\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\dtos\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\constants\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,24 +95,12 @@
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\controllers\\mecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\enthcollabdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\enthcollabdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\dtos\\projectsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\dtos\\projectsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\dtos\\updateuserprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\dtos\\updateuserprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\constants\\userconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\constants\\userconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\controllers\\tagscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,10 +117,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\geminiagentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\geminiagentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\constants\\ticketconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -143,16 +159,8 @@
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\dtos\\createprojectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\migrations\\20261119180633_addusertags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\migrations\\20261119180633_addusertags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\dtos\\createtagdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -231,14 +239,6 @@
       "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.data\\entities\\projectlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4BD1DE10-5329-443B-957A-3FF145986987}|EnthCollab.Data\\EnthCollab.Data.csproj|solutionrelative:enthcollab.data\\entities\\projectlike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\services\\projectprojections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\services\\projectprojections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|c:\\users\\danii\\desktop\\enthcollab\\backend\\enthcollab.api\\exceptions\\appexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F4C797AF-F142-4A79-A799-8BFAFCE1299A}|EnthCollab.Api\\EnthCollab.Api.csproj|solutionrelative:enthcollab.api\\exceptions\\appexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -284,7 +284,7 @@
         },
         {
           "DockedHeight": 323,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -292,54 +292,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\UserService.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\UserService.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAwwGUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T07:56:56.22Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UserProfileDto.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\UserProfileDto.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\UserProfileDto.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\UserProfileDto.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Dtos\\UserProfileDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "ProjectLike.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\ProjectLike.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\ProjectLike.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\ProjectLike.cs",
+              "RelativeToolTip": "EnthCollab.Data\\Entities\\ProjectLike.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-18T14:38:58.076Z",
+              "WhenOpened": "2026-11-15T21:28:21.665Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\AuthService.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\AuthService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAswCoAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Project.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Project.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Project.cs",
+              "RelativeToolTip": "EnthCollab.Data\\Entities\\Project.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T01:02:39.628Z",
+              "WhenOpened": "2026-10-02T18:25:02.818Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\User.cs",
+              "RelativeToolTip": "EnthCollab.Data\\Entities\\User.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAowCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-02T18:25:02.816Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Program.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Program.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Program.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAwwGcAAAAeAAAAAAAAAA==",
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\LikeService.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\LikeService.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\LikeService.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\LikeService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-02T18:25:02.824Z",
+              "WhenOpened": "2026-11-16T01:16:22.111Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
@@ -350,14 +354,127 @@
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\ProjectsController.cs",
               "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\ProjectsController.cs",
               "RelativeToolTip": "EnthCollab.Api\\Controllers\\ProjectsController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAowBQAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAAAYwLwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-02T18:25:02.814Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\AuthService.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\AuthService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAswCoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T01:02:39.628Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Program.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Program.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Program.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAswGkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-02T18:25:02.824Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GeminiAgentService.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\GeminiAgentService.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\GeminiAgentService.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\GeminiAgentService.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\GeminiAgentService.cs",
+              "ViewState": "AgIAALgBAAAAAAAAAAApwMkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T13:32:14.738Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EnthCollabDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\EnthCollabDbContext.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Data\\EnthCollabDbContext.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\EnthCollabDbContext.cs",
+              "RelativeToolTip": "EnthCollab.Data\\EnthCollabDbContext.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAmwG8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-02T18:25:02.808Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Tag.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Tag.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Tag.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Tag.cs",
+              "RelativeToolTip": "EnthCollab.Data\\Entities\\Tag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T10:26:44.231Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProjectProjections.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectProjections.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\ProjectProjections.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectProjections.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\ProjectProjections.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T01:14:18.487Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProjectSummaryDto.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T01:13:53.586Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProjectService.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectService.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\ProjectService.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectService.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\ProjectService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T01:15:07.296Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\UsersController.cs",
@@ -370,34 +487,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProjectService.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectService.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\ProjectService.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectService.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\ProjectService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBMAAAABAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "UserProfileDto.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\UserProfileDto.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\UserProfileDto.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\UserProfileDto.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Dtos\\UserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T01:15:07.296Z",
-              "EditorCaption": "",
+              "WhenOpened": "2026-10-18T14:38:58.076Z",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\User.cs",
-              "RelativeToolTip": "EnthCollab.Data\\Entities\\User.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAwwCkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\UserService.cs",
+              "RelativeToolTip": "EnthCollab.Api\\Services\\UserService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwGUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-02T18:25:02.816Z",
+              "WhenOpened": "2026-11-24T07:56:56.22Z",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\UserRoles.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\UserRoles.cs",
@@ -410,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "EnthCollab.Tests",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Tests\\EnthCollab.Tests.csproj",
               "RelativeDocumentMoniker": "EnthCollab.Tests\\EnthCollab.Tests.csproj",
@@ -423,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "ProjectsControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Tests\\ProjectsControllerTests.cs",
               "RelativeDocumentMoniker": "EnthCollab.Tests\\ProjectsControllerTests.cs",
@@ -436,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "ProjectServiceTests.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Tests\\ProjectServiceTests.cs",
               "RelativeDocumentMoniker": "EnthCollab.Tests\\ProjectServiceTests.cs",
@@ -449,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "UserServiceTests.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Tests\\UserServiceTests.cs",
               "RelativeDocumentMoniker": "EnthCollab.Tests\\UserServiceTests.cs",
@@ -462,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "EnthCollab.Api.csproj",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\EnthCollab.Api.csproj",
               "RelativeDocumentMoniker": "EnthCollab.Api\\EnthCollab.Api.csproj",
@@ -475,20 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EnthCollabDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\EnthCollabDbContext.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Data\\EnthCollabDbContext.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\EnthCollabDbContext.cs",
-              "RelativeToolTip": "EnthCollab.Data\\EnthCollabDbContext.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAcwG8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-02T18:25:02.808Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "MeController.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\MeController.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\MeController.cs",
@@ -501,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "UpdateUserProfileDto.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\UpdateUserProfileDto.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\UpdateUserProfileDto.cs",
@@ -514,20 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ProjectSummaryDto.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Dtos\\ProjectSummaryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T01:13:53.586Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 24,
               "Title": "UserConstants.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\UserConstants.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\UserConstants.cs",
@@ -540,20 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Project.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Project.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Project.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Project.cs",
-              "RelativeToolTip": "EnthCollab.Data\\Entities\\Project.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAYwBoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-02T18:25:02.818Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "TagsController.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\TagsController.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\TagsController.cs",
@@ -566,7 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "EnthCollab.Api.http",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\EnthCollab.Api.http",
               "RelativeDocumentMoniker": "EnthCollab.Api\\EnthCollab.Api.http",
@@ -579,7 +656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\AuthController.cs",
@@ -592,7 +669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "Ticket.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Ticket.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Ticket.cs",
@@ -605,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "TicketConstants.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\TicketConstants.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\TicketConstants.cs",
@@ -618,7 +695,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "AgentConversation.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\AgentConversation.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\AgentConversation.cs",
@@ -631,20 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "GeminiAgentService.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\GeminiAgentService.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\GeminiAgentService.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\GeminiAgentService.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\GeminiAgentService.cs",
-              "ViewState": "AgIAAG8BAAAAAAAAAAAtwHgBAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T13:32:14.738Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "AgentMessageRoles.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\AgentMessageRoles.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\AgentMessageRoles.cs",
@@ -657,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "AgentMessage.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\AgentMessage.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\AgentMessage.cs",
@@ -670,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "ProjectConstants.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\ProjectConstants.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\ProjectConstants.cs",
@@ -683,7 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "AuthConstants.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Constants\\AuthConstants.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Constants\\AuthConstants.cs",
@@ -696,7 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "AgentDtos.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\AgentDtos.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\AgentDtos.cs",
@@ -709,7 +773,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "AgentController.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Controllers\\AgentController.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Controllers\\AgentController.cs",
@@ -722,7 +786,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "CreateProjectDto.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\CreateProjectDto.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\CreateProjectDto.cs",
@@ -735,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "AuthDtos.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\AuthDtos.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\AuthDtos.cs",
@@ -748,20 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\LikeService.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\LikeService.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\LikeService.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\LikeService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T01:16:22.111Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "CreateTagDto.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\CreateTagDto.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\CreateTagDto.cs",
@@ -774,7 +825,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "TagDto.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Dtos\\TagDto.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Dtos\\TagDto.cs",
@@ -787,20 +838,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Tag.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Tag.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Tag.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Tag.cs",
-              "RelativeToolTip": "EnthCollab.Data\\Entities\\Tag.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T10:26:44.231Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "20261119180633_AddUserTags.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261119180633_AddUserTags.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261119180633_AddUserTags.cs",
@@ -813,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "RefreshToken.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\RefreshToken.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\RefreshToken.cs",
@@ -826,7 +864,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "EnthCollabDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\EnthCollabDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\EnthCollabDbContextModelSnapshot.cs",
@@ -839,7 +877,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "20261003131738_FixTags.Designer.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261003131738_FixTags.Designer.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261003131738_FixTags.Designer.cs",
@@ -852,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "ClaimsPrincipalExtensions.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Extensions\\ClaimsPrincipalExtensions.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Extensions\\ClaimsPrincipalExtensions.cs",
@@ -865,7 +903,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "GlobalExceptionHandler.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Middleware\\GlobalExceptionHandler.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Middleware\\GlobalExceptionHandler.cs",
@@ -878,7 +916,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\TokenService.cs",
@@ -891,7 +929,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\appsettings.Development.json",
               "RelativeDocumentMoniker": "EnthCollab.Api\\appsettings.Development.json",
@@ -904,7 +942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\appsettings.json",
               "RelativeDocumentMoniker": "EnthCollab.Api\\appsettings.json",
@@ -917,7 +955,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "AdminSeeder.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\AdminSeeder.cs",
               "RelativeDocumentMoniker": "EnthCollab.Api\\AdminSeeder.cs",
@@ -930,7 +968,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "20261116095850_AddProjectsAndTags.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261116095850_AddProjectsAndTags.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261116095850_AddProjectsAndTags.cs",
@@ -943,7 +981,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "20261115213240_AddRolesLikesRefreshTokens.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261115213240_AddRolesLikesRefreshTokens.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261115213240_AddRolesLikesRefreshTokens.cs",
@@ -956,7 +994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "20261018125136_AddUserCreatedAt.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261018125136_AddUserCreatedAt.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261018125136_AddUserCreatedAt.cs",
@@ -969,7 +1007,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "20261018115509_FixSchema.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261018115509_FixSchema.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261018115509_FixSchema.cs",
@@ -982,7 +1020,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "20261003131738_FixTags.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261003131738_FixTags.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261003131738_FixTags.cs",
@@ -995,7 +1033,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "20261002191938_AddHazards.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261002191938_AddHazards.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261002191938_AddHazards.cs",
@@ -1008,7 +1046,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "20261002190806_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Migrations\\20261002190806_InitialCreate.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Migrations\\20261002190806_InitialCreate.cs",
@@ -1021,20 +1059,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "ProjectLike.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\ProjectLike.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\ProjectLike.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\ProjectLike.cs",
-              "RelativeToolTip": "EnthCollab.Data\\Entities\\ProjectLike.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-15T21:28:21.665Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "Enums.cs",
               "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Data\\Entities\\Enums.cs",
               "RelativeDocumentMoniker": "EnthCollab.Data\\Entities\\Enums.cs",
@@ -1043,19 +1068,6 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAxwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-02T18:25:02.806Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "ProjectProjections.cs",
-              "DocumentMoniker": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectProjections.cs",
-              "RelativeDocumentMoniker": "EnthCollab.Api\\Services\\ProjectProjections.cs",
-              "ToolTip": "C:\\Users\\danii\\Desktop\\EnthCollab\\backend\\EnthCollab.Api\\Services\\ProjectProjections.cs",
-              "RelativeToolTip": "EnthCollab.Api\\Services\\ProjectProjections.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-16T01:14:18.487Z",
               "OwnerCaption": "%2"
             },
             {

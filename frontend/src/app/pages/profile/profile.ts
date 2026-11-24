@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import {
   LucideUser,
   LucideCircleUserRound,
@@ -9,8 +9,6 @@ import {
   LucideMail,
   LucideIdCard,
   LucideThumbsUp,
-  LucideHeart,
-  LucideMessagesSquare,
   LucideCalendar,
   LucideHammer,
   LucideCirclePlus,
@@ -42,8 +40,6 @@ import { HttpClient } from '@angular/common/http';
     LucideMail,
     LucideIdCard,
     LucideThumbsUp,
-    LucideHeart,
-    LucideMessagesSquare,
     LucideCalendar,
     LucideHammer,
     LucideCirclePlus,
@@ -78,11 +74,10 @@ export class Profile implements OnInit {
   private copyTimeout: ReturnType<typeof setTimeout> | null = null;
 
   readonly ProjectStatus = ProjectStatus;
-  readonly ProjectVisibility = ProjectVisibility;
-  activeTab = 'account';
+  activeTab: 'account' | 'liked' | 'projects' = 'account';
   readonly projects = signal<Project[]>([]);
+  readonly likedProjects = signal<Project[]>([]);
 
-  // My Projects search, sort & filter state
   readonly projectSearchQuery = signal<string>('');
   readonly projectSortOrder = signal<'newest' | 'oldest'>('newest');
   readonly selectedProjectStatus = signal<string>('ALL');
@@ -99,9 +94,13 @@ export class Profile implements OnInit {
 
   readonly projectVisibilityOptions = [
     { label: 'All Visibilities', value: 'ALL' },
-    { label: 'Public', value: ProjectVisibility?.Public ?? 'Public' },
-    { label: 'Private', value: ProjectVisibility?.Private ?? 'Private' }
+    { label: 'Public', value: ProjectVisibility.Public },
+    { label: 'Private', value: ProjectVisibility.Private }
   ];
+
+  getProjectTagName(tag: Tag | string): string {
+    return typeof tag === 'string' ? tag : tag.name;
+  }
 
   readonly availableProjectTags = computed<string[]>(() => {
     const names = new Set<string>();
@@ -110,7 +109,7 @@ export class Profile implements OnInit {
     }
     for (const project of this.projects()) {
       for (const rawTag of project.tags ?? []) {
-        const tagName = typeof rawTag === 'string' ? rawTag : rawTag?.name;
+        const tagName = this.getProjectTagName(rawTag);
         if (tagName) names.add(tagName);
       }
     }
@@ -136,7 +135,7 @@ export class Profile implements OnInit {
         String(project.visibility ?? '').toLowerCase() === String(visibilityFilter).toLowerCase();
 
       const projectTagNames = (project.tags ?? [])
-        .map((t: unknown) => (typeof t === 'string' ? t : (t as { name?: string })?.name ?? ''))
+        .map((t) => this.getProjectTagName(t))
         .filter(Boolean);
 
       const tagMatch =
@@ -147,10 +146,8 @@ export class Profile implements OnInit {
     });
 
     return [...matches].sort((a, b) => {
-      const aRec = a as Project & { createdAt?: string; createdDate?: string };
-      const bRec = b as Project & { createdAt?: string; createdDate?: string };
-      const aDate = Date.parse(aRec.createdAt ?? aRec.createdDate ?? '') || a.id || 0;
-      const bDate = Date.parse(bRec.createdAt ?? bRec.createdDate ?? '') || b.id || 0;
+      const aDate = a.id || 0;
+      const bDate = b.id || 0;
       return sortOrder === 'newest' ? bDate - aDate : aDate - bDate;
     });
   });
@@ -172,7 +169,6 @@ export class Profile implements OnInit {
     this.selectedProjectVisibility.set('ALL');
     this.selectedProjectTagNames.set(new Set());
   }
-
 
   copyField(key: 'id' | 'username' | 'email', value: string | number | undefined): void {
     if (value === undefined || value === null) return;
@@ -223,7 +219,6 @@ export class Profile implements OnInit {
       return;
     }
 
-    // 1. Fetch User Profile Info
     this.userService.getUser(currentUserId).subscribe({
       next: (data) => {
         this.profile.set(data);
@@ -250,19 +245,26 @@ export class Profile implements OnInit {
       }
     });
 
+    this.projectService.getLikedProjects().subscribe({
+      next: (likedData) => {
+        this.likedProjects.set(likedData);
+      },
+      error: (err) => {
+        console.error('Failed to fetch liked projects:', err);
+      }
+    });
+
     this.fetchTags();
   }
 
-  // tag section
   fetchTags() {
     this.http.get<Tag[]>('https://localhost:7036/api/Tags').subscribe({
       next: (tags) => {
-        console.log('Tags fetched successfully:', tags);
         this.allTags.set(tags);
         this.syncSelectedTagIdsFromProfile();
       },
       error: (err) => {
-        console.error('Failed to load tags from backend. Check CORS or backend URL.', err);
+        console.error('Failed to load tags from backend:', err);
       }
     });
   }
@@ -274,7 +276,6 @@ export class Profile implements OnInit {
 
     const validCatalogIds = new Set(catalog.map((t) => t.id));
 
-    // Prefer numeric tagIds from the API if present
     if (Array.isArray(currentProfile.tagIds)) {
       const ids = currentProfile.tagIds
         .map((id) => Number(id))
@@ -283,7 +284,6 @@ export class Profile implements OnInit {
       return;
     }
 
-    // Fallback: map tag names (string[]) to catalog IDs
     const userTags = currentProfile.tags ?? [];
     const tagNameToId = new Map<string, number>(
       catalog.map((t) => [t.name.toLowerCase(), t.id])

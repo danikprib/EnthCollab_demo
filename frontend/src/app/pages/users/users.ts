@@ -10,36 +10,25 @@ import {
 import { Tag } from '../../shared/models/tag';
 import { User } from '../../shared/models/user';
 
-
-
+type UserWithTagIds = User & { tagIds?: number[] };
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule,
-    RouterLink,
-    FormsModule,
-    LucideSlidersHorizontal,
-    LucideX,],
+  imports: [CommonModule, RouterLink, FormsModule, LucideSlidersHorizontal, LucideX],
   templateUrl: './users.html',
   styleUrl: './users.css',
 })
-
 export class Users implements OnInit {
   private http = inject(HttpClient);
 
   readonly isFilterMobileOpen = signal<boolean>(false);
-
   readonly searchQuery = signal<string>('');
-
   readonly selectedTagNames = signal<Set<string>>(new Set());
 
-  readonly activeFilterCount = computed(
-    () => this.selectedTagNames().size
-  );
+  readonly activeFilterCount = computed(() => this.selectedTagNames().size);
 
-  // Fetched from database
   readonly tagOptions = signal<Tag[]>([]);
-  readonly users = signal<User[]>([]);
+  readonly users = signal<UserWithTagIds[]>([]);
 
   ngOnInit(): void {
     this.fetchTags();
@@ -47,30 +36,52 @@ export class Users implements OnInit {
   }
 
   fetchTags(): void {
-    this.http.get<Tag[]>('https://localhost:7036/api/tags').subscribe({
+    this.http.get<Tag[]>('https://localhost:7036/api/Tags').subscribe({
       next: (tags) => this.tagOptions.set(tags),
       error: (err) => console.error('Failed to load tags:', err)
     });
   }
 
   fetchUsers(): void {
-    this.http.get<User[]>('https://localhost:7036/api/Users').subscribe({
+    this.http.get<UserWithTagIds[]>('https://localhost:7036/api/Users').subscribe({
       next: (data) => this.users.set(data),
       error: (err) => console.error('Failed to load users:', err)
     });
+  }
+
+  getUserTagNames(user: UserWithTagIds): string[] {
+    if (Array.isArray(user.tags) && user.tags.length > 0) {
+      return user.tags;
+    }
+
+    if (Array.isArray(user.tagIds) && user.tagIds.length > 0) {
+      const catalog = this.tagOptions();
+      return user.tagIds
+        .map((id) => catalog.find((t) => t.id === id)?.name)
+        .filter((name): name is string => Boolean(name));
+    }
+
+    return [];
+  }
+
+  getFullName(user: UserWithTagIds): string {
+    return [user.firstName?.trim(), user.lastName?.trim()].filter(Boolean).join(' ');
   }
 
   readonly filteredUsers = computed(() => {
     const query = this.searchQuery().toLowerCase().trim();
     const activeTags = this.selectedTagNames();
 
-    return this.users().filter((user: User) => {
+    return this.users().filter((user) => {
       const bioText = (user.bio ?? '').toLowerCase();
-      const userTags = user.tags ?? [];
+      const fullName = this.getFullName(user).toLowerCase();
+      const userTags = this.getUserTagNames(user);
 
       const matchesSearch =
         !query ||
         user.username.toLowerCase().includes(query) ||
+        String(user.id).includes(query) ||
+        fullName.includes(query) ||
         bioText.includes(query);
 
       const matchesTag =
