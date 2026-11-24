@@ -21,6 +21,8 @@ public class Project
     [MaxLength(ProjectConstants.MaxHazardLength, ErrorMessage = "Hazard section must not be greater than 5000 characters")]
     public string Hazard { get; set; } = string.Empty;
 
+    [MaxLength(ProjectConstants.MaxEstimatedDurationLength, ErrorMessage = "Estimated duration section must not be greater than 100 characters")]
+    public string? EstimatedDuration { get; set; }
 
     public ICollection<Tag> Tags { get; set; } = new List<Tag>();
 

@@ -17,6 +17,9 @@ public class User
     [MaxLength(UserConstants.MaxLastNameLength, ErrorMessage = "Username name must NOT be greater than 50 characters")]
     public string? LastName { get; set; }
 
+    [MaxLength(UserConstants.BioMaxLength, ErrorMessage = "Bio must not be greater than 5000 characters")]
+    public string Bio { get; set; } = string.Empty;
+
     [Required]
     [EmailAddress]
     public string Email { get; set; }
@@ -32,6 +35,8 @@ public class User
     public string Role { get; set; } = UserRoles.User;
     public ICollection<ProjectLike> Likes { get; set; } = new List<ProjectLike>();
     public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
+    public ICollection<Tag> Tags { get; set; } = new List<Tag>();
 
 
 }

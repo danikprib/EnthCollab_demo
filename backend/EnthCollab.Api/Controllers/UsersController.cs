@@ -1,51 +1,40 @@
 ﻿using EnthCollab.Api.Dtos;
-using EnthCollab.Data;
-using EnthCollab.Data.Entities;
+using EnthCollab.Api.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EnthCollab.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-
-public class UsersController : ControllerBase
+public class UsersController(IUserService users) : ControllerBase
 {
-    private readonly EnthCollabDbContext _context;
-
-    public UsersController(EnthCollabDbContext context)
-    {
-        _context = context;
-    }
-
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-    {
-        return await _context.Users.ToListAsync();
-    }
+    public async Task<ActionResult<List<UserProfileDto>>> GetUsers(CancellationToken ct) =>
+        Ok(await users.GetUsersAsync(ct));
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<UserProfileDto>> GetUser(int id)
+    public async Task<ActionResult<UserProfileDto>> GetUser(int id, CancellationToken ct)
     {
-        var user = await _context.Users.FindAsync(id);
-
-        if (user == null)
-        {
-            return NotFound();
-        }
-
-        var projectsCount = await _context.Projects.CountAsync(p => p.CreatedByUserId == id);
-
-        var profile = new UserProfileDto
-        {
-            Id = user.Id,
-            Username = user.Username,
-            Email = user.Email,
-            MemberSince = user.MemberSince,
-            ProjectsCount = projectsCount,
-        };
-
-        return Ok(profile);
+        var profile = await users.GetUserAsync(id, ct);
+        return profile is null ? NotFound() : Ok(profile);
     }
 
+    [Authorize]
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<UserProfileDto>> UpdateUser(
+        int id,
+        [FromBody] UserProfileDto dto,
+        CancellationToken ct)
+    {
+        try
+        {
+            var updated = await users.UpdateUserAsync(id, dto, ct);
+            return updated is null ? NotFound() : Ok(updated);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }

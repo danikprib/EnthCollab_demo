@@ -9,22 +9,12 @@ import {
   LucideTriangle,
   LucideSquareX,
   LucideSlidersHorizontal,
-  LucideX
+  LucideX,
+  LucideCirclePlus
 } from '@lucide/angular';
-import { Project, ProjectStatus } from '../../shared/models/project';
+import { ProjectSummary, ProjectStatus } from '../../shared/models/project';
 import { Tag } from '../../shared/models/tag';
 
-
-interface ProjectSummary {
-  id: number;
-  name: string;
-  description: string;
-  status: ProjectStatus;
-  ownerUsername: string;
-  likesCount: number;
-  likedByMe: boolean;
-  tags: string[];
-}
 
 @Component({
   selector: 'app-projects',
@@ -38,6 +28,7 @@ interface ProjectSummary {
     LucideSquareX,
     LucideSlidersHorizontal,
     LucideX,
+    LucideCirclePlus,
   ],
   templateUrl: './projects.html',
   styleUrl: './projects.css',

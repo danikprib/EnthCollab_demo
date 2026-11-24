@@ -7,4 +7,5 @@ public static class UserConstants
     public const int MaxFirstNameLength = 50;
     public const int MaxLastNameLength = 50;
     public const int MaxRoleLength = 20;
+    public const int BioMaxLength = 5000;
 }

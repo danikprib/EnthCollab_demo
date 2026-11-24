@@ -5,9 +5,11 @@ import { Login } from './pages/login/login';
 import { Signup } from './pages/signup/signup';
 import { Project } from './pages/project/project';
 import { CreateProject } from './pages/create-project/create-project';
-import { Chat } from './pages/chat/chat';
-import { Chats } from './pages/chats/chats';
+import { Agent } from './pages/agent/agent';
 import { Projects } from './pages/projects/projects';
+import { Users } from './pages/users/users';
+import { User } from './pages/user/user';
+
 
 
 export const routes: Routes = [
@@ -23,14 +25,29 @@ export const routes: Routes = [
         title: 'Log In'
     },
     {
+        path: 'users',
+        component: Users,
+        title: 'Users'
+    },
+    {
+        path: 'users/:userId',
+        component: User,
+        title: 'User Page'
+    },
+    {
         path: 'signup',
         component: Signup,
         title: 'Sign Up'
     },
+        {
+        path: 'agent',
+        component: Agent,
+        title: 'Agent'
+    },
     {
-        path: 'user',
+        path: 'profile',
         component: Profile,
-        title: 'User Profile'
+        title: 'My Profile'
     },
     {
         path: 'project/:projectId',
@@ -42,17 +59,17 @@ export const routes: Routes = [
         component: CreateProject,
         title: 'Create Project'
     },
-    {
-        path: 'chats',
-        loadComponent: () => import('./pages/chats/chats').then(m => m.Chats),
-        children: [
-            {
-                path: ':id',
-                loadComponent: () => import('./pages/chat/chat').then(m => m.Chat)
-            }
-        ],
-        title: 'Chats'
-    },
+    // {
+    //     path: 'chats',
+    //     loadComponent: () => import('./pages/chats/chats').then(m => m.Chats),
+    //     children: [
+    //         {
+    //             path: ':id',
+    //             loadComponent: () => import('./pages/chat/chat').then(m => m.Chat)
+    //         }
+    //     ],
+    //     title: 'Chats'
+    // },
     {
         path: 'projects',
         component: Projects,

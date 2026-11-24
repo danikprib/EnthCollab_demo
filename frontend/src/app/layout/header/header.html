@@ -18,18 +18,17 @@
         <a routerLink="/" class="font-bold"> EnthCollab </a>
 
         <nav class="hidden items-center gap-4 md:flex">
-          <a routerLink="/" class="hover:text-[var(--text-secondary)]">Home</a>
-          <a routerLink="/projects" class="hover:text-[var(--text-secondary)]">Projects</a>
-          <a routerLink="/chats" class="hover:text-[var(--text-secondary)]">Chats</a>
-          <a routerLink="/user" class="hover:text-[var(--text-secondary)]">User</a>
+          <a routerLink="/" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Home</a>
+          <a routerLink="/projects" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Projects</a>
+          <a routerLink="/users" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Users</a>
+          <a routerLink="/agent" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Agent</a>
         </nav>
       </div>
-
 
       <div class="flex items-center gap-3">
         <button
           type="button"
-          class="flex size-10 items-center justify-center rounded-md hover:bg-[var(--background)]"
+          class="flex size-10 items-center justify-center rounded-md hover:bg-[var(--background)] cursor-pointer"
           (click)="theme.toggle()"
           aria-label="Toggle theme"
         >
@@ -41,16 +40,19 @@
         </button>
 
         @if (auth.isLoggedIn()) {
-          <span>{{ auth.currentUser()?.username }}</span>
-          <button (click)="auth.logout()">Log out</button>
+          <a class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer" routerLink="/profile">{{
+            auth.currentUser()?.username
+          }}</a>
+          <button class="rounded-md border border-transparent px-3 py-1.5 hover:border-[var(--safety-orange)] hover:text-[var(--safety-orange)] transition-colors cursor-pointer"
+           (click)="auth.logout()">
+            Log out
+          </button>
         } @else {
-          <a routerLink="/login">Log in</a>
-          <a routerLink="/signup">Sign up</a>
+          <a routerLink="/login" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Log in</a>
+          <a routerLink="/signup" class="hover:text-[var(--text-secondary)] rounded-md border border-transparent px-3 py-1.5 hover:border-b-[var(--blue)] transition-colors cursor-pointer">Sign up</a>
         }
       </div>
     </div>
-
-
 
     @if (mobileMenuOpened()) {
       <nav class="flex flex-col border-t border-[var(--border)] py-2 md:hidden">

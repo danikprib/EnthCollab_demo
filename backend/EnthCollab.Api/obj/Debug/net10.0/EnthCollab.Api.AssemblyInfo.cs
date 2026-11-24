@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("3adf983e-9c5c-490d-acc4-5f04c68a6052")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnthCollab.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a574170bc1965fa113fe573f70d1bc270ed913")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b297788cd210b7e0475e83485f78dc9b6b7dbf34")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnthCollab.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnthCollab.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,4 @@
 <div class="mx-auto flex max-w-7xl flex-col gap-4 p-4 md:flex-row">
-  
   <!-- Mobile Filter Toggle Button -->
   <button
     type="button"
@@ -10,7 +9,9 @@
       <svg lucideSlidersHorizontal class="size-4"></svg>
       <span>Filters</span>
       @if (activeFilterCount() > 0) {
-        <span class="flex size-5 items-center justify-center rounded-full bg-[var(--blue)] text-xs text-white">
+        <span
+          class="flex size-5 items-center justify-center rounded-full bg-[var(--blue)] text-xs text-white"
+        >
           {{ activeFilterCount() }}
         </span>
       }
@@ -24,108 +25,125 @@
 
   <!-- Sidebar Filters -->
   <aside class="w-full shrink-0 md:w-64">
-    <div
-      class="flex flex-col gap-6 rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm md:sticky md:top-4"
-      [class.hidden]="!isFilterMobileOpen()"
-      [class.md:flex]="true"
-    >
-      <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
-        <h2 class="text-base font-bold text-[var(--text)]">Filter Projects</h2>
+    <div class="flex flex-col gap-3">
+      <button
+        type="button"
+        routerLink="/create-project"
+        class="flex w-full items-center justify-center gap-2 rounded-md border border-[var(--blue)] bg-[var(--surface)] px-4 py-2.5 text-sm font-semibold text-[var(--blue)] shadow-sm transition-colors hover:bg-[var(--blue)] hover:text-white"
+      >
+        <svg lucideCirclePlus class="size-4 shrink-0"></svg>
+        <span>Create Project</span>
+      </button>
 
-        @if (activeFilterCount() > 0) {
-          <button
-            type="button"
-            (click)="clearAllFilters()"
-            class="text-xs font-medium text-[var(--blue)] hover:underline"
-          >
-            Reset All
-          </button>
-        }
-      </div>
+      <div
+        class="flex flex-col gap-6 rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm md:sticky md:top-4"
+        [class.hidden]="!isFilterMobileOpen()"
+        [class.md:flex]="true"
+      >
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
+          <h2 class="text-base font-bold text-[var(--text)]">Filter Projects</h2>
 
-      <!-- Status Filter Section -->
-      <div class="flex flex-col gap-3">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
-            Status
-          </span>
-
-          @if (selectedStatuses().size > 0) {
+          @if (activeFilterCount() > 0) {
             <button
               type="button"
-              (click)="clearStatusFilter()"
-              class="text-[11px] text-[var(--red)] hover:underline"
+              (click)="clearAllFilters()"
+              class="text-xs font-medium text-[var(--blue)] hover:underline"
             >
-              Clear ({{ selectedStatuses().size }})
+              Reset All
             </button>
           }
         </div>
 
-        <div class="flex flex-col gap-2">
-          @for (option of statusOptions; track option.value) {
-            <label class="flex select-none items-center gap-2.5 text-sm hover:cursor-pointer">
-              <input
-                type="checkbox"
-                [checked]="selectedStatuses().has(option.value)"
-                (change)="toggleStatus(option.value)"
-                class="size-4 rounded-none border border-[var(--border)] bg-[var(--background)] accent-[var(--blue)] focus:ring-0 hover:cursor-pointer"
-              />
-
-              @switch (option.value) {
-                @case (ProjectStatus.Finished) {
-                  <svg lucideCircleCheckBig class="size-4 shrink-0 text-[var(--green)]"></svg>
-                }
-                @case (ProjectStatus.Frozen) {
-                  <svg lucideCirclePause class="size-4 shrink-0 text-[var(--cyan)]"></svg>
-                }
-                @case (ProjectStatus.WIP) {
-                  <svg lucideTriangle class="size-4 shrink-0 text-[var(--amber)]"></svg>
-                }
-                @case (ProjectStatus.Cancelled) {
-                  <svg lucideSquareX class="size-4 shrink-0 text-[var(--red)]"></svg>
-                }
-              }
-
-              <span class="text-xs font-medium text-[var(--text)]">
-                {{ option.label }}
-              </span>
-            </label>
-          }
-        </div>
-      </div>
-
-      <!-- Tech Stack / Tags Filter Section -->
-      <div class="flex flex-col gap-3 border-t border-[var(--border)] pt-4">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
-            Tech Stack / Tags
-          </span>
-
-          @if (selectedTagNames().size > 0) {
-            <button
-              type="button"
-              (click)="clearTagFilter()"
-              class="text-[11px] text-[var(--red)] hover:underline"
+        <!-- Status Filter Section -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
             >
-              Clear ({{ selectedTagNames().size }})
-            </button>
-          }
+              Status
+            </span>
+
+            @if (selectedStatuses().size > 0) {
+              <button
+                type="button"
+                (click)="clearStatusFilter()"
+                class="text-[11px] text-[var(--red)] hover:underline"
+              >
+                Clear ({{ selectedStatuses().size }})
+              </button>
+            }
+          </div>
+
+          <div class="flex flex-col gap-2">
+            @for (option of statusOptions; track option.value) {
+              <label class="flex select-none items-center gap-2.5 text-sm hover:cursor-pointer">
+                <input
+                  type="checkbox"
+                  [checked]="selectedStatuses().has(option.value)"
+                  (change)="toggleStatus(option.value)"
+                  class="size-4 rounded-none border border-[var(--border)] bg-[var(--background)] accent-[var(--blue)] focus:ring-0 hover:cursor-pointer"
+                />
+
+                @switch (option.value) {
+                  @case (ProjectStatus.Finished) {
+                    <svg lucideCircleCheckBig class="size-4 shrink-0 text-[var(--green)]"></svg>
+                  }
+                  @case (ProjectStatus.Frozen) {
+                    <svg lucideCirclePause class="size-4 shrink-0 text-[var(--cyan)]"></svg>
+                  }
+                  @case (ProjectStatus.WIP) {
+                    <svg lucideTriangle class="size-4 shrink-0 text-[var(--amber)]"></svg>
+                  }
+                  @case (ProjectStatus.Cancelled) {
+                    <svg lucideSquareX class="size-4 shrink-0 text-[var(--red)]"></svg>
+                  }
+                }
+
+                <span class="text-xs font-medium text-[var(--text)]">
+                  {{ option.label }}
+                </span>
+              </label>
+            }
+          </div>
         </div>
 
-        <div class="flex max-h-52 flex-col gap-1.5 overflow-y-auto pr-1">
-          @for (tag of tagOptions(); track tag.id) {
-            <label class="flex select-none items-center gap-2.5 py-0.5 text-xs hover:cursor-pointer">
-              <input
-                type="checkbox"
-                [checked]="selectedTagNames().has(tag.name)"
-                (change)="toggleTag(tag.name)"
-                class="size-3.5 rounded-none border border-[var(--border)] bg-[var(--background)] accent-[var(--blue)] focus:ring-0 hover:cursor-pointer"
-              />
-              <span class="text-[var(--text)]">
-                {{ tag.name }}
-              </span>
-            </label>
-          }
+        <!-- Tech Stack / Tags Filter Section -->
+        <div class="flex flex-col gap-3 border-t border-[var(--border)] pt-4">
+          <div class="flex items-center justify-between">
+            <span
+              class="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+            >
+              Tech Stack / Tags
+            </span>
+
+            @if (selectedTagNames().size > 0) {
+              <button
+                type="button"
+                (click)="clearTagFilter()"
+                class="text-[11px] text-[var(--red)] hover:underline"
+              >
+                Clear ({{ selectedTagNames().size }})
+              </button>
+            }
+          </div>
+
+          <div class="flex max-h-52 flex-col gap-1.5 overflow-y-auto pr-1">
+            @for (tag of tagOptions(); track tag.id) {
+              <label
+                class="flex select-none items-center gap-2.5 py-0.5 text-xs hover:cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  [checked]="selectedTagNames().has(tag.name)"
+                  (change)="toggleTag(tag.name)"
+                  class="size-3.5 rounded-none border border-[var(--border)] bg-[var(--background)] accent-[var(--blue)] focus:ring-0 hover:cursor-pointer"
+                />
+                <span class="text-[var(--text)]">
+                  {{ tag.name }}
+                </span>
+              </label>
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -133,7 +151,6 @@
 
   <!-- Main Content Area -->
   <main class="min-w-0 flex-1 space-y-4">
-    
     <!-- Search Bar Component -->
     <div class="relative flex items-center">
       <svg lucideSearch class="absolute left-3 size-4 text-[var(--text-secondary)]"></svg>
@@ -147,7 +164,7 @@
         <button
           type="button"
           (click)="clearSearch()"
-          class="absolute right-3 text-xs text-[var(--text-secondary)] hover:text-[var(--text)]"
+          class="absolute right-3 text-xs text-[var(--text-secondary)] hover:text-[var(--text)] hover: cursor-pointer"
         >
           Clear
         </button>
@@ -157,10 +174,14 @@
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       @for (project of filteredProjects(); track project.id) {
-        <div class="flex flex-col justify-between rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm">
+        <div
+          class="flex flex-col justify-between rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm"
+        >
           <div class="flex flex-col gap-2">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+              <span
+                class="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)]"
+              >
                 By {{ project.ownerUsername }}
               </span>
 
@@ -193,7 +214,9 @@
 
             <div class="mt-2 flex flex-wrap gap-1">
               @for (tagName of project.tags; track tagName) {
-                <span class="rounded border border-[var(--border)] bg-[var(--background)] px-1.5 py-0.5 text-[10px] text-[var(--text-secondary)]">
+                <span
+                  class="rounded border border-[var(--border)] bg-[var(--background)] px-1.5 py-0.5 text-[10px] text-[var(--text-secondary)]"
+                >
                   {{ tagName }}
                 </span>
               }

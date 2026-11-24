@@ -9,6 +9,10 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\EnthC
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\EnthCollab.Api.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\EnthCollab.Api.pdb
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Google.Apis.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Google.Apis.Auth.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Google.Apis.Core.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Google.GenAI.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Humanizer.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
@@ -24,6 +28,7 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Micro
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.Extensions.AI.Abstractions.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -47,6 +52,7 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\Syste
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\System.Management.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -112,6 +118,7 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\ru\Mi
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\EnthCollab.Data.dll
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\bin\Debug\net10.0\EnthCollab.Data.pdb
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\EnthCollab.Api.csproj.AssemblyReference.cache
@@ -135,7 +142,7 @@ C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\jsmod
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\scopedcss\scopedcss.cache
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\scopedcss\bundle\EnthCollab.Api.styles.css
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\compressed\o0celmlll1-{0}-tchfgznwy8-tchfgznwy8.gz
-C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\compressed\k7pheazchh-{0}-ra9k2gekca-ra9k2gekca.gz
+C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\compressed\k7pheazchh-{0}-y0vx0579tu-y0vx0579tu.gz
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\compressed\3pl9dtmrqf-{0}-v1vy2to33n-v1vy2to33n.gz
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\compressed\50ovi3pbom-{0}-ysew0n4kjn-ysew0n4kjn.gz
 C:\Users\danii\Desktop\EnthCollab\backend\EnthCollab.Api\obj\Debug\net10.0\staticwebassets.build.json

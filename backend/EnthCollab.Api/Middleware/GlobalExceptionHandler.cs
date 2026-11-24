@@ -12,8 +12,14 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
             ? (app.StatusCode, app.Message)
             : (StatusCodes.Status500InternalServerError, "An unexpected error occurred.");
 
-        if (status >= 500) logger.LogError(ex, "Unhandled exception on {Method} {Path}", ctx.Request.Method, ctx.Request.Path);
-        else logger.LogWarning("Request failed with {Status}: {Message}", status, ex.Message);
+        if (status >= 500)
+        {
+            logger.LogError(ex, "Unhandled exception on {Method} {Path}", ctx.Request.Method, ctx.Request.Path);
+        }
+        else
+        {
+            logger.LogWarning("Request failed with {Status}: {Message}", status, ex.Message);
+        }
 
         ctx.Response.StatusCode = status;
         await ctx.Response.WriteAsJsonAsync(new ProblemDetails { Status = status, Title = title, Instance = ctx.Request.Path }, ct);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnthCollab.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a574170bc1965fa113fe573f70d1bc270ed913")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b297788cd210b7e0475e83485f78dc9b6b7dbf34")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnthCollab.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnthCollab.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

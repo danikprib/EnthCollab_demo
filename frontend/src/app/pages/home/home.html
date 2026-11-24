@@ -1,61 +1,342 @@
-<div class="max-w-4xl mx-auto px-4 py-8 space-y-12 text-center">
+<div class="mx-auto max-w-4xl space-y-10 px-4 py-8">
   <!-- HERO SECTION -->
-  <div class="space-y-2">
-    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">EnthCollab</h1>
-    <p class="text-sm md:text-base text-[var(--text-secondary)]">
-      Find people. Build projects. Build your portfolio.
-    </p>
-  </div>
+  <header
+    class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-6 md:p-8 shadow-sm space-y-4"
+  >
+    <div class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-xs font-medium text-[var(--blue)]">
+      <svg lucideCompass class="size-3.5"></svg>
+      <span>Platform Guide &amp; Overview</span>
+    </div>
 
-  <!-- HOW IT WORKS SECTION -->
-  <div class="space-y-6">
-    <h2 class="text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)]">
-      How It Works
+    <div class="space-y-2">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">EnthCollab</h1>
+      <p class="max-w-2xl text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">
+        Web platform for projects collaboration with a built-in AI Agent.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3 pt-1">
+      <a
+        routerLink="/projects"
+        class="inline-flex items-center gap-1.5 rounded-md border border-[var(--blue)] bg-[var(--blue)] px-4 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90"
+      >
+        <span>Browse Projects</span>
+        <svg lucideArrowRight class="size-3.5"></svg>
+      </a>
+
+      <a
+        routerLink="/agent"
+        class="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--background)] px-4 py-2 text-xs font-semibold transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <svg lucideBot class="size-3.5 text-[var(--blue)]"></svg>
+        <span>Try AI Agent</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- TABLE OF CONTENTS -->
+  <nav
+    aria-label="Page contents"
+    class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4 shadow-xs"
+  >
+    <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+      Contents
     </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+      <button
+        type="button"
+        (click)="scrollToSection('intro')"
+        class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-left font-medium transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <span class="font-bold text-[var(--blue)]">01</span>
+        <span>Introduction</span>
+      </button>
 
-    <!-- 4-Column Grid for Steps (Stacks on mobile, 4 columns on desktop) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-      <!-- Step 1 -->
-      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
-        <span class="text-xs font-bold text-[var(--blue)]">01</span>
-        <h3 class="font-bold text-sm">Create Profile</h3>
-        <p class="text-xs text-[var(--text-secondary)]">Add your skills and interests</p>
-      </div>
+      <button
+        type="button"
+        (click)="scrollToSection('projects')"
+        class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-left font-medium transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <span class="font-bold text-[var(--blue)]">02</span>
+        <span>How Projects Work</span>
+      </button>
 
-      <!-- Step 2 -->
-      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
-        <span class="text-xs font-bold text-[var(--blue)]">02</span>
-        <h3 class="font-bold text-sm">Find or Create</h3>
-        <p class="text-xs text-[var(--text-secondary)]">
-          Find something to work on or start your own idea
+      <button
+        type="button"
+        (click)="scrollToSection('tickets')"
+        class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-left font-medium transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <span class="font-bold text-[var(--blue)]">03</span>
+        <span>How Tickets Work</span>
+      </button>
+
+      <button
+        type="button"
+        (click)="scrollToSection('ai-agent')"
+        class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-left font-medium transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <span class="font-bold text-[var(--blue)]">04</span>
+        <span>AI Assistant</span>
+      </button>
+
+      <button
+        type="button"
+        (click)="scrollToSection('faq')"
+        class="flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-left font-medium transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+      >
+        <span class="font-bold text-[var(--blue)]">05</span>
+        <span>FAQ</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 01 INTRODUCTION -->
+  <section id="intro" class="scroll-mt-6 space-y-4">
+    <div class="flex items-baseline gap-3 border-b border-[var(--border)] pb-2">
+      <span class="text-sm font-extrabold text-[var(--blue)]">01</span>
+      <h2 class="text-xl font-bold tracking-tight">Introduction</h2>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">What is EnthCollab?</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          EnthCollab is a collaborative project hub designed for programmers, electronics tinkerers,
+          and hobbyist engineers. Instead of letting side-project ideas stall alone, you can publish
+          structured project blueprints, tag required skills, and team up with builders who have
+          complementary expertise.
         </p>
       </div>
 
-      <!-- Step 3 -->
-      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
-        <span class="text-xs font-bold text-[var(--blue)]">03</span>
-        <h3 class="font-bold text-sm">Build Your Team</h3>
-        <p class="text-xs text-[var(--text-secondary)]">
-          Find developers with the skills your project needs
+      <!-- Sub-section -->
+      <div class="space-y-2">
+        <h3 class="text-base font-semibold">What are the main features?</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3.5 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--text)]">Skill-Based Profiles</h4>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Add technology and hardware tags to your profile so others—and the AI assistant—can match you with relevant builds.
+            </p>
+          </div>
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3.5 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--text)]">Structured Project Pages</h4>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Document goals, estimated timelines, safety hazards, and lifecycle status in one clean workspace.
+            </p>
+          </div>
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3.5 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--text)]">Ticket-Driven Collaboration</h4>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Split large builds into clear tasks with difficulty ratings so contributors know exactly where to jump in.
+            </p>
+          </div>
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3.5 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wide text-[var(--text)]">Built-in AI Assistant</h4>
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              Brainstorm ideas, check feasibility and hazards, auto-draft tickets, and discover matching teammates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 HOW PROJECTS WORK -->
+  <section id="projects" class="scroll-mt-6 space-y-4">
+    <div class="flex items-baseline gap-3 border-b border-[var(--border)] pb-2">
+      <span class="text-sm font-extrabold text-[var(--blue)]">02</span>
+      <h2 class="text-xl font-bold tracking-tight">How Projects Work</h2>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">How to create a project</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Navigate to <strong>Projects → Create Project</strong> (or generate a draft in the
+          <strong>AI Assistant</strong> and click <em>Use in Create Project</em>). Fill in the project
+          name, description, estimated duration (e.g., <code class="text-xs">2-3 weeks</code>),
+          skill tags, visibility (<strong>Public</strong> or <strong>Private</strong>), and any safety hazards.
         </p>
       </div>
 
-      <!-- Step 4 -->
-      <div class="p-4 rounded-md border border-[var(--border)] bg-[var(--surface)] space-y-1">
-        <span class="text-xs font-bold text-[var(--blue)]">04</span>
-        <h3 class="font-bold text-sm">Collaborate</h3>
-        <p class="text-xs text-[var(--text-secondary)]">
-          Work together and build something worth showcasing
+      <!-- Sub-section -->
+      <div class="space-y-2">
+        <h3 class="text-base font-semibold">What do the project statuses mean?</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="inline-block rounded-full border border-[var(--amber)]/40 bg-[var(--amber)]/10 px-2 py-0.5 font-semibold text-[var(--amber)]">
+              WIP (Work In Progress)
+            </span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Active build currently in development and open for collaboration and ticket progress.
+            </p>
+          </div>
+
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="inline-block rounded-full border border-[var(--green)]/40 bg-[var(--green)]/10 px-2 py-0.5 font-semibold text-[var(--green)]">
+              Finished
+            </span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Completed project ready to showcase as a finished portfolio piece.
+            </p>
+          </div>
+
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="inline-block rounded-full border border-[var(--cyan)]/40 bg-[var(--cyan)]/10 px-2 py-0.5 font-semibold text-[var(--cyan)]">
+              Frozen
+            </span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Temporarily paused (e.g., waiting on hardware parts or design review) and can be resumed later.
+            </p>
+          </div>
+
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="inline-block rounded-full border border-[var(--red)]/40 bg-[var(--red)]/10 px-2 py-0.5 font-semibold text-[var(--red)]">
+              Cancelled
+            </span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Archived or discontinued build kept visible for reference and lessons learned.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">How to edit your project</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Open any project you created from <strong>Projects</strong> or your <strong>Profile → My Projects</strong> tab.
+          As the project owner, you can update the description, adjust tags, document newly discovered
+          hazards, switch visibility between Public and Private, or transition the project status as milestones are reached.
+        </p>
+      </div>
+
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <svg lucideShieldAlert class="size-4 text-[var(--safety-orange)]"></svg>
+          <h3 class="text-base font-semibold">What Hazards field is for?</h3>
+        </div>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Hazards section in the project highlights any potential safety considerations while working on the project,
+          for example working with high voltages or if some data becomes non-recoverable once deleted.
+          You can put such info in <strong>Hazards</strong> section and it will be automatically highlighted on the project page.
         </p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- FAQ SECTION -->
-  <div class="max-w-2xl mx-auto space-y-4">
-    <h2 class="text-xs uppercase tracking-widest font-bold text-[var(--text-secondary)]">FAQ</h2>
-    <div class="text-left">
+  <!-- 03 HOW TICKETS WORK -->
+  <section id="tickets" class="scroll-mt-6 space-y-4">
+    <div class="flex items-baseline gap-3 border-b border-[var(--border)] pb-2">
+      <span class="text-sm font-extrabold text-[var(--blue)]">03</span>
+      <h2 class="text-xl font-bold tracking-tight">How Tickets Work</h2>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">What are tickets for?</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Tickets break a project down into clear, self-contained tasks, for example writing a sensor driver,
+          designing a PCB schematic, or building a REST endpoint. Each ticket carries a difficulty badge
+          (<strong>Easy</strong>, <strong>Medium</strong>, <strong>Hard</strong>, or <strong>Advanced</strong>)
+          so contributors can pick tasks matching their experience level.
+        </p>
+      </div>
+
+      <!-- Sub-section -->
+      <div class="space-y-2">
+        <h3 class="text-base font-semibold">Ticket lifecycle statuses</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="font-bold text-[var(--blue)]">Open</span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Available for any contributor to claim and start working on.
+            </p>
+          </div>
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="font-bold text-[var(--amber)]">Taken</span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Currently claimed by a team member who is actively building the solution.
+            </p>
+          </div>
+          <div class="rounded-md border border-[var(--border)] bg-[var(--surface)] p-3 space-y-1">
+            <span class="font-bold text-[var(--green)]">Done</span>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              Completed and verified deliverable merged into the project.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">How to claim and submit a deliverable</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Open a project's ticket board, claim an <strong>Open</strong> ticket (moving it to <strong>Taken</strong>),
+          and build the feature or hardware artifact. When finished, share your repository link, pull request,
+          or documentation notes with the project owner and mark the ticket as <strong>Done</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 AI AGENT -->
+  <section id="ai-agent" class="scroll-mt-6 space-y-4">
+    <div class="flex items-baseline gap-3 border-b border-[var(--border)] pb-2">
+      <span class="text-sm font-extrabold text-[var(--blue)]">04</span>
+      <h2 class="text-xl font-bold tracking-tight">EnthCollab AI Agent</h2>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Sub-section -->
+      <div class="space-y-1.5">
+        <h3 class="text-base font-semibold">What does the AI Agent do?</h3>
+        <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+          Available from the <strong>Agent</strong> tab in the top navigation bar, the AI Agent acts as
+          a technical co-planner grounded in your profile skills and live EnthCollab platform data.
+        </p>
+      </div>
+
+      <!-- Sub-section -->
+      <div class="space-y-2">
+        <h3 class="text-base font-semibold">Key capabilities</h3>
+        <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
+          <li class="flex items-start gap-2">
+            <svg lucideSparkles class="mt-1 size-4 shrink-0 text-[var(--blue)]"></svg>
+            <span>
+              <strong class="text-inherit">Idea Feasibility &amp; Risk Checks:</strong> Validate whether a hobbyist software or hardware idea is realistic and surface technical or safety hazards early.
+            </span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg lucideCheckSquare class="mt-1 size-4 shrink-0 text-[var(--blue)]"></svg>
+            <span>
+              <strong class="text-inherit">One-Click Project Drafting:</strong> Generate a complete project name, description, estimated duration, tags, and starter tickets, then send them straight into <strong>Create Project</strong>.
+            </span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg lucideFolderKanban class="mt-1 size-4 shrink-0 text-[var(--blue)]"></svg>
+            <span>
+              <strong class="text-inherit">Project &amp; Collaborator Discovery:</strong> Ask for open WIP projects matching your tags or find platform members whose skills fit what your build needs.
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 FAQ -->
+  <section id="faq" class="scroll-mt-6 space-y-4">
+    <div class="flex items-baseline gap-3 border-b border-[var(--border)] pb-2">
+      <span class="text-sm font-extrabold text-[var(--blue)]">05</span>
+      <h2 class="text-xl font-bold tracking-tight">Frequently Asked Questions</h2>
+    </div>
+
+    <div>
       <app-accordion [items]="homeFaqList"></app-accordion>
     </div>
-  </div>
+  </section>
 </div>

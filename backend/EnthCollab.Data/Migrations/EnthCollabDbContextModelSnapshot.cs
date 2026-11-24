@@ -22,6 +22,67 @@ namespace EnthCollab.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("EnthCollab.Data.Entities.AgentConversation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AgentConversations");
+                });
+
+            modelBuilder.Entity("EnthCollab.Data.Entities.AgentMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("ConversationId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<string>("StructuredPayloadJson")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConversationId");
+
+                    b.ToTable("AgentMessages", t =>
+                        {
+                            t.HasCheckConstraint("CK_AgentMessage_Role", "\"Role\" IN ('User','Agent')");
+                        });
+                });
+
             modelBuilder.Entity("EnthCollab.Data.Entities.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -33,13 +94,14 @@ namespace EnthCollab.Data.Migrations
                     b.Property<int>("CreatedByUserId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CreatedByUserId1")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(5000)
                         .HasColumnType("character varying(5000)");
+
+                    b.Property<string>("EstimatedDuration")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Hazard")
                         .IsRequired()
@@ -63,9 +125,7 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("CreatedByUserId");
 
-                    b.HasIndex("CreatedByUserId1");
-
-                    b.ToTable("Projects", null, t =>
+                    b.ToTable("Projects", t =>
                         {
                             t.HasCheckConstraint("CK_Project_Status", "\"Status\" IN ('WIP','Finished','Cancelled','Frozen')");
 
@@ -88,7 +148,7 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("ProjectLikes", (string)null);
+                    b.ToTable("ProjectLikes");
                 });
 
             modelBuilder.Entity("EnthCollab.Data.Entities.RefreshToken", b =>
@@ -122,7 +182,7 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshTokens", (string)null);
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("EnthCollab.Data.Entities.Tag", b =>
@@ -143,7 +203,7 @@ namespace EnthCollab.Data.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Tags", (string)null);
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("EnthCollab.Data.Entities.Ticket", b =>
@@ -179,7 +239,7 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Tickets", null, t =>
+                    b.ToTable("Tickets", t =>
                         {
                             t.HasCheckConstraint("CK_Ticket_Difficulty", "\"Difficulty\" IN ('Easy','Medium','Hard','Advanced')");
 
@@ -194,6 +254,11 @@ namespace EnthCollab.Data.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("character varying(5000)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -234,7 +299,7 @@ namespace EnthCollab.Data.Migrations
                     b.HasIndex("Username")
                         .IsUnique();
 
-                    b.ToTable("Users", null, t =>
+                    b.ToTable("Users", t =>
                         {
                             t.HasCheckConstraint("CK_User_Role", "\"Role\" IN ('User','Admin')");
                         });
@@ -252,7 +317,7 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("TagsId");
 
-                    b.ToTable("ProjectTag", (string)null);
+                    b.ToTable("ProjectTag");
                 });
 
             modelBuilder.Entity("TagTicket", b =>
@@ -267,20 +332,51 @@ namespace EnthCollab.Data.Migrations
 
                     b.HasIndex("TicketsId");
 
-                    b.ToTable("TagTicket", (string)null);
+                    b.ToTable("TagTicket");
+                });
+
+            modelBuilder.Entity("TagUser", b =>
+                {
+                    b.Property<int>("TagsId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("TagsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("TagUser");
+                });
+
+            modelBuilder.Entity("EnthCollab.Data.Entities.AgentConversation", b =>
+                {
+                    b.HasOne("EnthCollab.Data.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("EnthCollab.Data.Entities.AgentMessage", b =>
+                {
+                    b.HasOne("EnthCollab.Data.Entities.AgentConversation", "Conversation")
+                        .WithMany("Messages")
+                        .HasForeignKey("ConversationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Conversation");
                 });
 
             modelBuilder.Entity("EnthCollab.Data.Entities.Project", b =>
                 {
-                    b.HasOne("EnthCollab.Data.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("CreatedByUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EnthCollab.Data.Entities.User", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId1")
+                        .HasForeignKey("CreatedByUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -356,6 +452,26 @@ namespace EnthCollab.Data.Migrations
                         .HasForeignKey("TicketsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TagUser", b =>
+                {
+                    b.HasOne("EnthCollab.Data.Entities.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EnthCollab.Data.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EnthCollab.Data.Entities.AgentConversation", b =>
+                {
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("EnthCollab.Data.Entities.Project", b =>

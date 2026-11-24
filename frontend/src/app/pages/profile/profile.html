@@ -19,28 +19,97 @@
       <div class="my-3 flex items-center justify-center">
         <svg lucideCircleUserRound class="size-12 text-[var(--text-secondary)]"></svg>
       </div>
-
-      <h2 class="font-semibold">Identity</h2>
+      <div class="flex items-center justify-between">
+        <h2 class="font-semibold">Identity</h2>
+        <button
+          type="button"
+          (click)="copyIdentity()"
+          class="inline-flex items-center gap-1 rounded border border-[var(--border)] bg-[var(--background)] px-2 py-0.5 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)]"
+          title="Copy full identity info"
+        >
+          @if (copiedKey() === 'identity') {
+            <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+            <span class="text-[var(--green)]">Copied</span>
+          } @else {
+            <svg lucideCopy class="size-3"></svg>
+            <span>Copy</span>
+          }
+        </button>
+      </div>
       <div class="my-2 border-t border-[var(--border)]"></div>
 
-      <div class="flex flex-col gap-2 text-sm">
-        <div class="flex flex-row items-center gap-2">
-          <svg lucideIdCard class="size-4 text-[var(--text-secondary)]"></svg>
-          <label class="font-semibold">ID</label>
+      <div class="flex flex-col gap-2.5 text-sm">
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideIdCard class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">ID</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('id', user.id)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+              title="Copy ID"
+            >
+              @if (copiedKey() === 'id') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6">{{ user.id }}</span>
         </div>
-        <span class="pl-6">{{ user.id }}</span>
 
-        <div class="flex flex-row items-center gap-2">
-          <svg lucideUser class="size-4 text-[var(--text-secondary)]"></svg>
-          <label class="font-semibold">Username</label>
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideUser class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">Username</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('username', user.username)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+              title="Copy Username"
+            >
+              @if (copiedKey() === 'username') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6">{{ user.username }}</span>
         </div>
-        <span class="pl-6">{{ user.username }}</span>
 
-        <div class="flex flex-row items-center gap-2">
-          <svg lucideMail class="size-4 text-[var(--text-secondary)]"></svg>
-          <label class="font-semibold">Email</label>
+        <div class="flex flex-col gap-0.5">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <svg lucideMail class="size-4 text-[var(--text-secondary)]"></svg>
+              <label class="font-semibold">Email</label>
+            </div>
+            <button
+              type="button"
+              (click)="copyField('email', user.email)"
+              class="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--background)] hover:text-[var(--blue)]"
+              title="Copy Email"
+            >
+              @if (copiedKey() === 'email') {
+                <svg lucideCheck class="size-3 text-[var(--green)]"></svg>
+                <span class="text-[var(--green)]">Copied</span>
+              } @else {
+                <svg lucideCopy class="size-3"></svg>
+                <span>Copy</span>
+              }
+            </button>
+          </div>
+          <span class="pl-6 truncate">{{ user.email }}</span>
         </div>
-        <span class="pl-6 truncate">{{ user.email }}</span>
       </div>
 
       <div class="my-3 border-t border-[var(--border)]"></div>
@@ -114,8 +183,10 @@
             <label class="text-sm font-semibold">User ID</label>
             <input
               readonly
+              disabled
+              aria-readonly="true"
               type="text"
-              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[var(--text-secondary)] cursor-not-allowed"
+              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[var(--text-secondary)] cursor-not-allowed opacity-75"
               [value]="user.id"
             />
 
@@ -123,20 +194,106 @@
             <input
               type="text"
               class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
-              [value]="user.username"
+              [value]="usernameInput()"
+              (input)="usernameInput.set($any($event.target).value)"
+            />
+
+            <label class="text-sm font-semibold">First Name</label>
+            <input
+              type="text"
+              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+              [value]="firstNameInput()"
+              (input)="firstNameInput.set($any($event.target).value)"
+            />
+
+            <label class="text-sm font-semibold">Last Name</label>
+            <input
+              type="text"
+              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+              [value]="lastNameInput()"
+              (input)="lastNameInput.set($any($event.target).value)"
             />
 
             <label class="text-sm font-semibold">Email</label>
             <input
+              readonly
+              disabled
+              aria-readonly="true"
               type="email"
-              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2"
+              class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-[var(--text-secondary)] cursor-not-allowed opacity-75"
               [value]="user.email"
             />
 
+            <label for="bio-input" class="text-sm font-semibold">Bio</label>
+            <textarea
+              id="bio-input"
+              rows="5"
+              maxlength="5000"
+              placeholder="Tell others about your skills, experience, and interests..."
+              class="w-full min-h-[120px] resize-y rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm"
+              [value]="bioInput()"
+              (input)="bioInput.set($any($event.target).value)"
+            ></textarea>
+
+            <!-- Tags Section -->
+            <div class="mb-4">
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-sm font-semibold">Tags</label>
+                @if (selectedTagIds.length > 0) {
+                  <button
+                    type="button"
+                    (click)="clearTags()"
+                    class="text-sm font-medium text-red-600 hover:text-red-800 transition-colors"
+                  >
+                    Clear all
+                  </button>
+                }
+              </div>
+
+              <div
+                class="flex flex-wrap items-center gap-2 p-2 border rounded-md bg-white min-h-[46px] shadow-sm"
+              >
+                @for (tag of selectedTagIds; track tag) {
+                  <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-300"
+                  >
+                    {{ getTagName(tag) }}
+                    <button
+                      type="button"
+                      (click)="removeTag(tag)"
+                      class="ml-1.5 text-gray-400 hover:text-red-600 focus:outline-none font-bold"
+                    >
+                      &times;
+                    </button>
+                  </span>
+                }
+
+                <select
+                  (change)="addTag($event)"
+                  class="flex-grow border-0 focus:ring-0 text-sm outline-none bg-transparent py-1 cursor-pointer text-gray-600 min-w-[120px]"
+                >
+                  <option value="" disabled selected>+ Add tag...</option>
+                  @for (tag of availableTags; track tag.id) {
+                    <option [value]="tag.id">{{ tag.name }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            @if (saveError()) {
+              <p class="text-xs font-medium text-[var(--red)]">{{ saveError() }}</p>
+            }
+            @if (saveSuccess()) {
+              <p class="text-xs font-medium text-[var(--green)]">{{ saveSuccess() }}</p>
+            }
+
             <button
-              class="mt-2 rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white transition-colors"
+              type="button"
+              (click)="saveChanges()"
+              [disabled]="isSaving()"
+              class="mt-2 rounded-md border border-[var(--blue)] px-4 py-2 hover:bg-[var(--blue)] hover:text-white transition-colors disabled:opacity-50"
             >
-              Save Changes
+              {{ isSaving() ? 'Saving...' : 'Save Changes' }}
             </button>
 
             <label class="mt-6 font-semibold text-[var(--red)]">Danger Zone</label>
@@ -145,78 +302,205 @@
             >
               Delete Account
             </button>
+            <button
+              class="rounded-md border border-[var(--red)] px-4 py-2 hover:bg-[var(--red)] hover:text-white transition-colors"
+            >
+              Display real name
+            </button>
           </div>
         }
 
         @if (activeTab === 'liked') {
-          <div class="p-2 text-[var(--text-secondary)]">
-            <h2>Liked Projects</h2>
-            <span>List of liked projects will appear here.</span>
+          <div class="p-4 text-center text-[var(--text-secondary)]">
+            You haven't liked any projects yet.
           </div>
         }
 
         @if (activeTab === 'projects') {
-          <div
-            class="flex flex-col gap-2 p-2 border border-[var(--border)] bg-[var(--background)] overflow-y-auto max-h-[30rem] w-full rounded-md"
-          >
-            @for (project of projects(); track project.id) {
-              <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
-                <div class="flex flex-row justify-between items-center mb-2">
-                  <div class="flex flex-row items-center gap-2">
-                    @switch (project.status) {
-                      @case (ProjectStatus.Finished) {
-                        <svg lucideCircleCheckBig class="size-4 text-[var(--green)]"></svg>
-                      }
-                      @case (ProjectStatus.Frozen) {
-                        <svg lucideCirclePause class="size-4 text-[var(--cyan)]"></svg>
-                      }
-                      @case (ProjectStatus.WIP) {
-                        <svg lucideTriangle class="size-4 text-[var(--amber)]"></svg>
-                      }
-                      @case (ProjectStatus.Cancelled) {
-                        <svg lucideSquareX class="size-4 text-[var(--red)]"></svg>
-                      }
-                    }
-                    <span class="text-sm font-medium">{{ project.status }}</span>
-                  </div>
-                  <span class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs">
-                    {{ project.visibility }}
+          <div class="space-y-3">
+            <!-- Search Bar -->
+            <div class="relative flex items-center">
+              <input
+                type="text"
+                [value]="projectSearchQuery()"
+                (input)="projectSearchQuery.set($any($event.target).value)"
+                placeholder="Search your projects by name..."
+                class="w-full rounded-md border border-[var(--border)] bg-[var(--background)] py-2 pr-14 pl-3 text-sm text-[var(--text)] placeholder-[var(--text-secondary)] outline-none focus:border-[var(--blue)]"
+              />
+              @if (projectSearchQuery()) {
+                <button
+                  type="button"
+                  (click)="projectSearchQuery.set('')"
+                  class="absolute right-3 text-xs text-[var(--text-secondary)] hover:text-[var(--text)] cursor-pointer"
+                >
+                  Clear
+                </button>
+              }
+            </div>
+
+            <!-- Sort, Status & Visibility Filters -->
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              <div class="flex flex-col gap-1">
+                <label
+                  class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  Date Created
+                </label>
+                <select
+                  [value]="projectSortOrder()"
+                  (change)="
+                    projectSortOrder.set(
+                      $any($event.target).value === 'oldest' ? 'oldest' : 'newest'
+                    )
+                  "
+                  class="rounded-md border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs text-[var(--text)] outline-none focus:border-[var(--blue)]"
+                >
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label
+                  class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  Status
+                </label>
+                <select
+                  [value]="selectedProjectStatus()"
+                  (change)="selectedProjectStatus.set($any($event.target).value)"
+                  class="rounded-md border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs text-[var(--text)] outline-none focus:border-[var(--blue)]"
+                >
+                  @for (opt of projectStatusOptions; track opt.value) {
+                    <option [value]="opt.value">{{ opt.label }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label
+                  class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                >
+                  Visibility
+                </label>
+                <select
+                  [value]="selectedProjectVisibility()"
+                  (change)="selectedProjectVisibility.set($any($event.target).value)"
+                  class="rounded-md border border-[var(--border)] bg-[var(--background)] px-2.5 py-1.5 text-xs text-[var(--text)] outline-none focus:border-[var(--blue)]"
+                >
+                  @for (opt of projectVisibilityOptions; track opt.value) {
+                    <option [value]="opt.value">{{ opt.label }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            <!-- Tags Filter -->
+            @if (availableProjectTags().length > 0) {
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]"
+                  >
+                    Tags
                   </span>
+                  @if (
+                    projectSearchQuery() ||
+                    selectedProjectStatus() !== 'ALL' ||
+                    selectedProjectVisibility() !== 'ALL' ||
+                    selectedProjectTagNames().size > 0 ||
+                    projectSortOrder() !== 'newest'
+                  ) {
+                    <button
+                      type="button"
+                      (click)="clearProjectFilters()"
+                      class="text-xs font-medium text-[var(--blue)] hover:underline cursor-pointer"
+                    >
+                      Reset filters
+                    </button>
+                  }
                 </div>
 
-                <a
-                  [routerLink]="['/project', project.id]"
-                  class="font-semibold text-[var(--blue)] hover:underline"
-                >
-                  {{ project.name }}
-                </a>
-                <p class="text-sm mt-1 text-[var(--text-secondary)]">{{ project.description }}</p>
-
-                <div class="flex flex-wrap gap-2 mt-3">
-                  @for (tag of project.tags; track $index) {
-                    <span
-                      class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs bg-[var(--background)]"
+                <div class="flex flex-wrap gap-1.5">
+                  @for (tagName of availableProjectTags(); track tagName) {
+                    <button
+                      type="button"
+                      (click)="toggleProjectTag(tagName)"
+                      [class.bg-[var(--blue)]]="selectedProjectTagNames().has(tagName)"
+                      [class.text-white]="selectedProjectTagNames().has(tagName)"
+                      [class.border-[var(--blue)]]="selectedProjectTagNames().has(tagName)"
+                      class="rounded-full border border-[var(--border)] bg-[var(--background)] px-2.5 py-0.5 text-xs text-[var(--text)] transition-colors cursor-pointer"
                     >
-                      {{ tag.name ?? tag }}
-                    </span>
+                      {{ tagName }}
+                    </button>
                   }
                 </div>
               </div>
-            } @empty {
-              <div class="p-4 text-center text-[var(--text-secondary)]">
-                You haven't created any projects yet.
-              </div>
             }
-          </div>
 
-          <button
-            type="button"
-            routerLink="/create-project"
-            class="flex items-center w-full justify-center py-3 px-2 gap-2 font-medium mt-3 rounded-md border border-[var(--blue)] hover:bg-[var(--blue)] hover:text-white transition-colors"
-          >
-            <svg lucideCirclePlus class="size-5"></svg>
-            <span class="text-base">Create Project</span>
-          </button>
+            <!-- Filtered Projects List -->
+            <div
+              class="flex flex-col gap-2 p-2 border border-[var(--border)] bg-[var(--background)] overflow-y-auto max-h-[30rem] w-full rounded-md"
+            >
+              @for (project of filteredProjects(); track project.id) {
+                <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3">
+                  <div class="flex flex-row justify-between items-center mb-2">
+                    <div class="flex flex-row items-center gap-2">
+                      @switch (project.status) {
+                        @case (ProjectStatus.Finished) {
+                          <svg lucideCircleCheckBig class="size-4 text-[var(--green)]"></svg>
+                        }
+                        @case (ProjectStatus.Frozen) {
+                          <svg lucideCirclePause class="size-4 text-[var(--cyan)]"></svg>
+                        }
+                        @case (ProjectStatus.WIP) {
+                          <svg lucideTriangle class="size-4 text-[var(--amber)]"></svg>
+                        }
+                        @case (ProjectStatus.Cancelled) {
+                          <svg lucideSquareX class="size-4 text-[var(--red)]"></svg>
+                        }
+                      }
+                      <span class="text-sm font-medium">{{ project.status }}</span>
+                    </div>
+                    <span class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs">
+                      {{ project.visibility }}
+                    </span>
+                  </div>
+
+                  <a
+                    [routerLink]="['/project', project.id]"
+                    class="font-semibold text-[var(--blue)] hover:underline"
+                  >
+                    {{ project.name }}
+                  </a>
+                  <p class="text-sm mt-1 text-[var(--text-secondary)]">{{ project.description }}</p>
+
+                  <div class="flex flex-wrap gap-2 mt-3">
+                    @for (tag of project.tags; track $index) {
+                      <span
+                        class="rounded-full border border-[var(--border)] px-2 py-0.5 text-xs bg-[var(--background)]"
+                      >
+                        {{ tag.name ?? tag }}
+                      </span>
+                    }
+                  </div>
+                </div>
+              } @empty {
+                <div class="p-4 text-center text-[var(--text-secondary)]">
+                  No projects match your search or filter criteria.
+                </div>
+              }
+            </div>
+
+            <button
+              type="button"
+              routerLink="/create-project"
+              class="flex items-center w-full justify-center py-3 px-2 gap-2 font-medium mt-3 rounded-md border border-[var(--blue)] hover:bg-[var(--blue)] hover:text-white transition-colors"
+            >
+              <svg lucideCirclePlus class="size-5"></svg>
+              <span class="text-base">Create Project</span>
+            </button>
+          </div>
         }
       </div>
     </div>

@@ -22,8 +22,6 @@ export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  // Must match your backend's https port (see Properties/launchSettings.json).
-  // Later, move this into environment.ts.
   private baseUrl = 'https://localhost:7036/api/auth';
 
   private _currentUser = signal<CurrentUser | null>(this.loadUser());
@@ -70,7 +68,6 @@ export class AuthService {
     localStorage.removeItem(USER_KEY);
   }
 
-  // Runs once at startup: restores the logged-in state after a page refresh.
   private loadUser(): CurrentUser | null {
     const token = localStorage.getItem(TOKEN_KEY);
     const raw = localStorage.getItem(USER_KEY);
@@ -81,7 +78,6 @@ export class AuthService {
     return JSON.parse(raw) as CurrentUser;
   }
 
-  // A JWT is three base64 parts separated by dots. The middle part holds the claims, including "exp".
   private isExpired(token: string): boolean {
     try {
       const payload = JSON.parse(
@@ -92,4 +88,19 @@ export class AuthService {
       return true;
     }
   }
+
+
+  updateCurrentUserUsername(username: string): void {
+    const current = this._currentUser();
+    if (!current) return;
+
+    const updated: CurrentUser = { ...current, username };
+    this._currentUser.set(updated);
+
+    if (localStorage.getItem(TOKEN_KEY)) {
+      localStorage.setItem(USER_KEY, JSON.stringify(updated));
+    }
+  }
+
+  
 }

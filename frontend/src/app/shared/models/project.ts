@@ -22,3 +22,14 @@ export interface Project {
   createdByUserId: number;
   tags: Tag[];
 }
+
+export interface ProjectSummary {
+  id: number;
+  name: string;
+  description: string;
+  status: ProjectStatus;
+  ownerUsername: string;
+  likesCount: number;
+  likedByMe: boolean;
+  tags: string[];
+}

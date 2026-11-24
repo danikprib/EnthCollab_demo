@@ -1,0 +1,312 @@
+<section class="mx-auto flex h-[calc(100vh-8.5rem)] max-w-5xl flex-col gap-3 p-4">
+  <!-- Header -->
+  <header
+    class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-3 shadow-sm"
+  >
+    <div class="flex items-center gap-3">
+      <div
+        class="flex size-10 shrink-0 items-center justify-center rounded-lg border border-[var(--blue)]/30 bg-[var(--blue)]/10 text-[var(--blue)]"
+      >
+        <svg lucideBot class="size-5"></svg>
+      </div>
+      <div>
+        <h1 class="text-base font-semibold leading-tight">EnthCollab AI Assistant</h1>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      (click)="openClearConfirm()"
+      [disabled]="isClearing() || messages().length === 0"
+      class="inline-flex items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs font-medium transition-colors hover:border-[var(--red)] hover:text-[var(--red)] disabled:cursor-not-allowed disabled:opacity-45"
+    >
+      <svg lucideTrash2 class="size-3.5"></svg>
+      <span>{{ isClearing() ? 'Clearing...' : 'Clear Messages' }}</span>
+    </button>
+  </header>
+
+  <!-- Starter Prompt Chips -->
+  <div class="flex flex-wrap gap-2">
+    @for (prompt of starterPrompts; track prompt) {
+      <button
+        type="button"
+        (click)="useStarterPrompt(prompt)"
+        [disabled]="isSending()"
+        class="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1.5 text-left text-xs transition-colors hover:border-[var(--blue)] hover:text-[var(--blue)] disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        <svg lucideSparkles class="size-3.5 shrink-0 text-[var(--blue)]"></svg>
+        <span>{{ prompt }}</span>
+      </button>
+    }
+  </div>
+
+  <!-- Chat Feed -->
+  <div
+    #messagesContainer
+    class="flex flex-1 flex-col gap-3 overflow-y-auto rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm"
+  >
+    @if (isLoadingHistory()) {
+      <div class="m-auto py-8 text-sm text-[var(--text-secondary)]">Loading conversation...</div>
+    } @else if (messages().length === 0) {
+      <div class="m-auto flex max-w-md flex-col items-center gap-2 py-8 text-center">
+        <div
+          class="flex size-12 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--background)] text-[var(--text-secondary)]"
+        >
+          <svg lucideBot class="size-6"></svg>
+        </div>
+        <h2 class="text-sm font-semibold">Start a session</h2>
+        <p class="text-xs leading-relaxed text-[var(--text-secondary)]">
+          Ask about idea feasibility, request a project breakdown with tickets and duration, or find
+          open projects and members matching your skills.
+        </p>
+      </div>
+    } @else {
+      @for (msg of messages(); track $index) {
+        <div
+          class="flex"
+          [class.justify-end]="msg.role === 'User'"
+          [class.justify-start]="msg.role === 'Agent'"
+        >
+          <div
+            class="max-w-[85%] rounded-lg border px-3.5 py-2.5 text-sm shadow-xs"
+            [class.border-[var(--blue)]/40]="msg.role === 'User'"
+            [class.bg-[var(--blue)]/10]="msg.role === 'User'"
+            [class.border-[var(--border)]]="msg.role === 'Agent'"
+            [class.bg-[var(--background)]]="msg.role === 'Agent'"
+          >
+            <div
+              class="mb-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-secondary)]"
+            >
+              {{ msg.role === 'User' ? 'You' : 'AI Assistant' }}
+            </div>
+
+            <p class="whitespace-pre-wrap leading-relaxed">{{ msg.content }}</p>
+
+            <!-- Structured Project Draft Card -->
+            @if (
+              msg.role === 'Agent' && msg.structuredData && hasProjectDraft(msg.structuredData)
+            ) {
+              <div
+                class="mt-3 flex flex-col gap-2.5 rounded-md border border-[var(--border)] bg-[var(--surface)] p-3"
+              >
+                <div class="flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--blue)]">
+                      Project Draft
+                    </span>
+                    @if (msg.structuredData.suggestedName) {
+                      <h3 class="mt-0.5 text-sm font-semibold">
+                        {{ msg.structuredData.suggestedName }}
+                      </h3>
+                    }
+                  </div>
+
+                  <button
+                    type="button"
+                    (click)="useInCreateProject(msg.structuredData)"
+                    class="inline-flex items-center gap-1 rounded-md border border-[var(--blue)] bg-[var(--blue)] px-2.5 py-1 text-xs font-medium text-white transition-opacity hover:opacity-90"
+                  >
+                    <span>Use in Create Project</span>
+                    <svg lucideArrowUpRight class="size-3.5"></svg>
+                  </button>
+                </div>
+
+                @if (msg.structuredData.estimatedDuration) {
+                  <div class="flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
+                    <svg lucideClock class="size-3.5 shrink-0"></svg>
+                    <span>
+                      Estimated duration:
+                      <strong class="font-medium text-inherit">{{
+                        msg.structuredData.estimatedDuration
+                      }}</strong>
+                    </span>
+                  </div>
+                }
+
+                @if (msg.structuredData.suggestedDescription) {
+                  <p class="text-xs leading-relaxed text-[var(--text-secondary)]">
+                    {{ msg.structuredData.suggestedDescription }}
+                  </p>
+                }
+
+                @if (msg.structuredData.suggestedHazard) {
+                  <div
+                    class="flex items-start gap-1.5 rounded border border-amber-500/30 bg-amber-500/10 p-2 text-xs text-amber-300"
+                  >
+                    <svg lucideAlertTriangle class="mt-0.5 size-3.5 shrink-0"></svg>
+                    <span><strong>Hazards:</strong> {{ msg.structuredData.suggestedHazard }}</span>
+                  </div>
+                }
+
+                @if (msg.structuredData.suggestedTags.length > 0) {
+                  <div class="flex flex-wrap gap-1.5">
+                    @for (tag of msg.structuredData.suggestedTags; track tag) {
+                      <span
+                        class="rounded-full border border-[var(--border)] bg-[var(--background)] px-2 py-0.5 text-[11px]"
+                      >
+                        {{ tag }}
+                      </span>
+                    }
+                  </div>
+                }
+
+                @if (msg.structuredData.suggestedTickets.length > 0) {
+                  <div class="border-t border-[var(--border)] pt-2">
+                    <div class="mb-1.5 flex items-center gap-1.5 text-xs font-semibold">
+                      <svg lucideCheckSquare class="size-3.5 text-[var(--blue)]"></svg>
+                      <span
+                        >Suggested Tickets ({{ msg.structuredData.suggestedTickets.length }})</span
+                      >
+                    </div>
+                    <ul class="flex flex-col gap-1 text-xs">
+                      @for (ticket of msg.structuredData.suggestedTickets; track ticket.title) {
+                        <li
+                          class="flex items-center justify-between gap-2 rounded bg-[var(--background)] px-2 py-1"
+                        >
+                          <span>{{ ticket.title }}</span>
+                          <span
+                            class="shrink-0 rounded border border-[var(--border)] px-1.5 py-0.5 text-[10px] text-[var(--text-secondary)]"
+                          >
+                            {{ ticket.difficulty }}
+                          </span>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </div>
+            }
+
+            <!-- Recommended Projects -->
+            @if (msg.role === 'Agent' && msg.structuredData?.recommendedProjects?.length) {
+              <div class="mt-3 border-t border-[var(--border)] pt-2.5">
+                <div
+                  class="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)]"
+                >
+                  <svg lucideFolderKanban class="size-3.5"></svg>
+                  <span>Matching Projects</span>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  @for (proj of msg.structuredData!.recommendedProjects; track proj.projectId) {
+                    <a
+                      [routerLink]="['/project', proj.projectId]"
+                      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] px-2.5 py-1.5 text-xs transition-colors hover:border-[var(--blue)]"
+                    >
+                      <strong class="font-semibold text-[var(--blue)]">{{ proj.name }}</strong>
+                      <span class="mt-0.5 text-[var(--text-secondary)]">{{ proj.reason }}</span>
+                    </a>
+                  }
+                </div>
+              </div>
+            }
+
+            <!-- Recommended Users -->
+            @if (msg.role === 'Agent' && msg.structuredData?.recommendedUsers?.length) {
+              <div class="mt-3 border-t border-[var(--border)] pt-2.5">
+                <div
+                  class="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[var(--text-secondary)]"
+                >
+                  <svg lucideUsers class="size-3.5"></svg>
+                  <span>Suggested Collaborators</span>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  @for (user of msg.structuredData!.recommendedUsers; track user.userId) {
+                    <a
+                      [routerLink]="['/users']"
+                      [queryParams]="{ userId: user.userId }"
+                      class="flex flex-col rounded-md border border-[var(--border)] bg-[var(--surface)] px-2.5 py-1.5 text-xs transition-colors hover:border-[var(--blue)]"
+                    >
+                      <strong class="font-semibold text-[var(--blue)]"
+                        >&#64;{{ user.username }}</strong
+                      >
+                      <span class="mt-0.5 text-[var(--text-secondary)]">{{ user.reason }}</span>
+                    </a>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    }
+
+    @if (isSending()) {
+      <div class="flex justify-start">
+        <div
+          class="rounded-lg border border-[var(--border)] bg-[var(--background)] px-3.5 py-2 text-xs text-[var(--text-secondary)]"
+        >
+          Thinking...
+        </div>
+      </div>
+    }
+  </div>
+
+  @if (errorMessage()) {
+    <div
+      class="rounded-md border border-[var(--red)] bg-[var(--surface)] px-3.5 py-2 text-xs text-[var(--red)]"
+    >
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <!-- Input Bar -->
+  <form
+    (ngSubmit)="sendMessage()"
+    class="flex items-end gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-2.5 shadow-sm"
+  >
+    <textarea
+      rows="2"
+      [maxLength]="maxPromptLength"
+      placeholder="Ask about a project idea, request a ticket breakdown, or find matching projects/users..."
+      [ngModel]="promptInput()"
+      (ngModelChange)="promptInput.set($event)"
+      (keydown)="onKeyDown($event)"
+      [disabled]="isSending()"
+      name="promptInput"
+      class="min-h-[44px] flex-1 resize-none rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm focus:border-[var(--blue)] focus:outline-none disabled:opacity-50"
+    ></textarea>
+
+    <button
+      type="submit"
+      [disabled]="isSending() || !promptInput().trim()"
+      class="inline-flex h-[44px] shrink-0 items-center gap-1.5 rounded-md border border-[var(--blue)] bg-[var(--blue)] px-4 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <svg lucideSend class="size-4"></svg>
+      <span>Send</span>
+    </button>
+  </form>
+
+  @if (isClearConfirmOpen()) {
+    <div
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+      (click)="cancelClearConfirm()"
+    >
+      <div
+        class="w-full max-w-sm rounded-lg border border-[var(--border)] bg-[var(--surface)] p-5 shadow-xl"
+        (click)="$event.stopPropagation()"
+      >
+        <h2 class="text-sm font-semibold">Clear conversation?</h2>
+        <p class="mt-1.5 text-xs leading-relaxed text-[var(--text-secondary)]">
+          This will permanently delete your current chat history with the EnthCollab AI Assistant.
+        </p>
+
+        <div class="mt-4 flex justify-end gap-2">
+          <button
+            type="button"
+            (click)="cancelClearConfirm()"
+            class="rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs font-medium transition-colors hover:opacity-80"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            (click)="confirmClearChat()"
+            class="rounded-md border border-[var(--red)] bg-[var(--red)] px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90"
+          >
+            Clear Messages
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>

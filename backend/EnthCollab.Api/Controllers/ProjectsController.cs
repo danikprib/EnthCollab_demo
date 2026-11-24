@@ -10,7 +10,6 @@ using EnthCollab.Api.Services;
 
 namespace EnthCollab.Api.Controllers;
 
-[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 

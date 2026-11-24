@@ -15,6 +15,8 @@ public class EnthCollabDbContext : DbContext
     public DbSet<Tag> Tags => Set<Tag>();
     public DbSet<ProjectLike> ProjectLikes => Set<ProjectLike>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+    public DbSet<AgentConversation> AgentConversations => Set<AgentConversation>();
+    public DbSet<AgentMessage> AgentMessages => Set<AgentMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -84,6 +86,26 @@ public class EnthCollabDbContext : DbContext
                   .WithMany(p => p.Tickets)
                   .HasForeignKey(t => t.ProjectId)
                   .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<AgentConversation>(e =>
+        {
+            e.HasIndex(c => c.UserId).IsUnique();
+            e.HasOne(c => c.User)
+             .WithMany()
+             .HasForeignKey(c => c.UserId)
+             .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<AgentMessage>(e =>
+        {
+            e.HasIndex(m => m.ConversationId);
+            e.ToTable(t => t.HasCheckConstraint("CK_AgentMessage_Role", "\"Role\" IN ('User','Agent')"));
+
+            e.HasOne(m => m.Conversation)
+             .WithMany(c => c.Messages)
+             .HasForeignKey(m => m.ConversationId)
+             .OnDelete(DeleteBehavior.Cascade);
         });
 
     }
